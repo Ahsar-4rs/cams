@@ -1,8 +1,11 @@
 import React from 'react'
 import './Homepage.css'
+import Explore from '../../Components/Header/Explore/Explore'
 function Homepage() {
   return (
-    <div>Homepage</div>
+    <div>
+      <Explore/>
+    </div>
   )
 }
 

@@ -1,0 +1,31 @@
+
+.main-flex{
+    width: 99%;
+    margin: auto;
+}
+
+#main-img{
+    width: 50%;
+    float: left;
+}
+#grad{
+    height: 430px;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    
+    width: 50%;
+    height: 430px;
+}
+#box1{
+    height: 50%;
+    background-color: #3f0000 ;
+
+}
+#box2{
+    height: 50%;
+    background-color:  #001F3F;
+
+}

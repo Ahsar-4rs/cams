@@ -3,7 +3,7 @@
 #wm-header {
     float: left;
     width: 99.19%;
-    
+    margin-bottom: 13px;
 }
 .Header{
     display: flex;
