@@ -9,22 +9,27 @@ const tabs=[
     {
         name:"Health",
         icon:health,
+        path:'/',
     },
     {
         name:"Infrastructure",
         icon:repair,
+        path:'/',
     },
     {
         name:"Emergency Amenities",
         icon:emergency,
+        path:'/',
     },
     {
         name:"Social Events",
         icon:event,
+        path:'/',
     },
     {
         name:"Report",
         icon:report,
+        path:'/',
     }
 ]
 
@@ -38,7 +43,7 @@ function Tabs() {
             return(
               <div className='category'>
                 <div className='content'>
-                    <img src={item.icon}/>
+                    <img src={item.icon} alt=''/>
                     <h3>{item.name}</h3>
                 </div> 
               </div>

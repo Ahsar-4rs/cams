@@ -3,7 +3,7 @@ import './LoginRegister.css'
 import React, { useState } from 'react'
 
 function LoginRegister() {
-    const [currState,setCurrState]=useState("Login")
+    const [action,setAction]=useState("Login")
 
     const [formData,setFormData]=useState({
         username:"",
@@ -11,23 +11,36 @@ function LoginRegister() {
         email:""
     })
 
+    const registerLink =() =>{
+      setAction('Register');
+    };
+    const loginLink =() =>{
+      setAction('Login');
+    };
+
   return (
-    <div className='login-register'>
-        <div className='title'>
-            <h2>Login</h2>
+    <div className={`loginRegister ${action === 'Register' ? 'signup' : 'signin'}`}>
+           <div className='title'>
+            <h2>{action}</h2>
         
         </div>
         <div className='form-data'>
-        <input type='text' name='username' value={formData.username} placeholder='Enter Username' required/>
-        <input type='text' name='password' value={formData.password} placeholder='Enter Password' required/>
+        <input type='text' name='username' value={formData.username} placeholder='Enter Username' onChange={(e)=>setFormData({...formData,username:e.target.value})} required/>
+        <input type='password' name='password' value={formData.password} placeholder='Enter Password'onChange={(e)=>setFormData({...formData,password:e.target.value})} required/>
+        {action==='Register' &&(
+          <input className={`email-input ${action === 'Register' ? 'show' : ''}`}  type='text' name='email' value={formData.email} placeholder='Enter Email' onChange={(e)=>setFormData({...formData,email:e.target.value})} required/>
+        )}
         </div>
         
         <div className='terms'>
-        <input type='checkbox' name='consent' required/><label>I hereby accept all the given <a href='./privacy-policy.html' target='blank'>Terms and Conditions</a> specified.</label>
+        <input  type='checkbox' name='consent' required/><label>I hereby accept all the given <a href='./privacy' target='blank'>Terms and Conditions</a> specified.</label>
+        
         </div>
         
         <button>Submit</button>
-        
+        {action==='Login'?<p >Don't have an account?<a href='#signup' onClick={registerLink}>Register</a></p>:<p >Don't have an account?<a href='#signin' onClick={loginLink}>login</a></p>}
+      
+       
     </div>
   )
 }
