@@ -6,9 +6,7 @@
     flex-direction: row;
 }
 .login{
-    margin:0px 10px;
-    background-color: #f3f4f2;
-    padding: 40px;
-    width: 25%;
-    height: 270px;
+    width: 29%;
+    padding: 0px 40px 0px 20px;
+    
 }
