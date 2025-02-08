@@ -1,0 +1,17 @@
+.event-banner{
+    margin: 40px;
+    padding: 30px;
+}
+#upcomingEvents{
+    text-align: center;
+    margin: 20px;
+}
+#firstHalf, #secondHalf {
+    display: inline; 
+}
+#firstHalf{
+    color: #012e5b;
+}
+#secondHalf{
+    color: #9C7945;
+}
