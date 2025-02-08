@@ -10,7 +10,7 @@ function Header() {
                     <img src={logo} id='logo-img' alt='logo'/>
                 </div>
                 <div className='horNav'>
-                    <ul className='tabs'>
+                    <ul className='menu'>
                         <li>Home</li>
                         <li>Announcements</li>
                         <li>Dashboard</li>
