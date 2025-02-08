@@ -16,7 +16,7 @@
     border-radius: 0px 0px 15px 15px;
     overflow: hidden; 
     height: 100px;
-    box-shadow: 6px 6px 10px 5px rgb(185, 183, 183);
+    box-shadow: 6px 6px 10px 5px #f3f4f2;
 }
 
 #logo-img {
