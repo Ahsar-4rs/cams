@@ -1,0 +1,35 @@
+.event-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin: 10px;
+    width: 250px;
+    transition: transform 0.2s;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.event-image {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: fill;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.event-card h5 {
+    color: #333;
+    margin: 0 0 8px 0;
+    font-size: 1.2rem;
+}
+
+.event-card h6 {
+    color: #666;
+    margin: 4px 0;
+    font-size: 0.9rem;
+    font-weight: normal;
+}

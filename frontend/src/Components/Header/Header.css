@@ -42,19 +42,19 @@
 }
 
 
-.horNav ul li{
+li{
     display: block;
     text-align: center;
     padding: 20px;
     border-radius: 0px 0px 15px 15px;
 }
 
-.horNav ul li a{
+li{
     color: #ffffff;
     text-decoration: none;
 }
 
-.horNav ul li:hover{
+li:hover{
     background-color: #9C7945;
     color: #001F3F;
     font-weight: 500;
