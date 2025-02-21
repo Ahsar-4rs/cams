@@ -12,11 +12,11 @@ function Header() {
                 </div>
                 <div className='horNav'>
                     <ul className='menu'>
-                        <li><Link to="/">Home</Link></li>
-                        <li>Announcements</li>
-                        <li>Dashboard</li>
-                        <li><Link to="/about">About</Link></li>
-                        <li>Contact</li>
+                        <Link to="/"><li>Home</li></Link>
+                        <Link><li>Events</li></Link>
+                        <Link><li>Account</li></Link>
+                        <Link to="/about"><li>About</li></Link>
+                        <Link><li>Contact</li></Link>
                     </ul>
                 </div>
             </div>
