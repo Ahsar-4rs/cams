@@ -6,6 +6,7 @@
 #upcomingEvents{
     display: flex;
     text-align: center;
+    margin: 20px;
     margin: 10px auto;  
     max-width: 1200px;
     flex-wrap: wrap;
@@ -13,6 +14,7 @@
     justify-content: center; 
 }
 #firstHalf, #secondHalf {
+    display: inline; 
     display: inline-block;  
     vertical-align: baseline; 
 }
@@ -71,7 +73,7 @@
         margin: 20px;
         padding: 15px;
     }
-    
+
     .event-card {
         flex: 0 0 100%;
     }

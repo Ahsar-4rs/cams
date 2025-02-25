@@ -1,24 +1,23 @@
 import React from "react";
 import './Event.css'
 
-function Event(props){
+function EventComponent(props){
 
-    const {Name, Date, Image, Time, Venue, Organizer} = props
-    console.log(Image)
+    const {Name, Date, Time, Venue, Image, Organizer} = props
+    console.log("Event Props:", props);
     
     return(
         <div className="event-card">
-            <p><h5>{Organizer}</h5></p>
+            <h5 className="organizer">{Organizer}</h5>
             <img className="event-image" src={Image} alt={Name} />
-            <div>
-                <h5>{Name}</h5>
-                <h6>{Date}</h6>
-                <h6>{Time}</h6>
-                <h6>{Venue}</h6>
+            <div className="event-info">
+                <h5 id="Name">{Name}</h5>
+                <h6 id="Date">{Date}</h6>
+                <h6 id="Time">{Time}</h6>
+                <h6 id="Venue">{Venue}</h6>
             </div>
-
         </div>
     )
 }
 
-export default Event
+export default EventComponent
