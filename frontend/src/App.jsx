@@ -5,6 +5,7 @@ import Homepage from './Home/Homepage.jsx';
 import Footer from './Components/Footer/Footer.jsx';
 import PrivacyPolicyPage from './pages/Privacy-policy/PrivacyPolicy.jsx';
 import About from './Components/About/About.jsx';
+import EventPage from './pages/Events-Page/EventsPage.jsx'
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
         <Routes>
             <Route exact path="/" element={<Homepage/>} />
             <Route exact path="/privacy" element={<PrivacyPolicyPage/>}/>
-            <Route exact path="/about" element={<About />}/>
+            <Route exact path="/About" element={<About />}/>
+            <Route exact path="EventPage" element={<EventPage />}></Route>
         </Routes>
         <Footer/>
        </BrowserRouter>
