@@ -55,12 +55,6 @@
     margin: 0 auto;
 }
 
-.event-card {
-    flex: 0 0 calc(25% - 20px);
-    max-width: 350px;
-    min-width: 250px;
-}
-
 /* Responsive design */
 @media screen and (max-width: 1024px) {
     .event-card {
