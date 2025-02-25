@@ -1,5 +1,5 @@
 import React from "react";
-import './Event.css'
+import './Event.css';
 
 function EventComponent(props){
 
@@ -7,7 +7,7 @@ function EventComponent(props){
     console.log("Event Props:", props);
     
     return(
-        <div className="event-card">
+        <div className="event-cards">
             <h5 className="organizer">{Organizer}</h5>
             <img className="event-image" src={Image} alt={Name} />
             <div className="event-info">
