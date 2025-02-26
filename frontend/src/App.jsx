@@ -1,6 +1,6 @@
 import Header from './Components/Header/Header.jsx'
 import './App.css';
-import { BrowserRouter,Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Homepage from './Home/Homepage.jsx';
 import Footer from './Components/Footer/Footer.jsx';
 import PrivacyPolicyPage from './pages/Privacy-policy/PrivacyPolicy.jsx';
@@ -17,7 +17,7 @@ function App() {
             <Route exact path="/" element={<Homepage/>} />
             <Route exact path="/privacy" element={<PrivacyPolicyPage/>}/>
             <Route exact path="/About" element={<About />}/>
-            <Route exact path="EventPage" element={<EventPage />}></Route>
+            <Route exact path="/EventPage" element={<EventPage />}></Route>
         </Routes>
         <Footer/>
        </BrowserRouter>

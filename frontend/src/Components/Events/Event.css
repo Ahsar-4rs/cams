@@ -4,7 +4,8 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 15px;
     margin: 10px;
-    width: 250px;
+    width: 270px;
+    height: 550px;
     transition: transform 0.2s;
     display: flex;
     flex: 1;
@@ -16,6 +17,7 @@
     flex: 0 0 calc(25% - 20px);
     max-width: 350px;
     min-width: 250px;
+    text-align: center;
 }
 
 .event-cards:hover {
