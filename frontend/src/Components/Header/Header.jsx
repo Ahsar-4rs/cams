@@ -16,7 +16,7 @@ function Header() {
                         <Link><li>Events</li></Link>
                         <Link><li>Account</li></Link>
                         <Link to="/about"><li>About</li></Link>
-                        <Link><li>Contact</li></Link>
+                        <a href='#footer'><li>Contact</li></a>
                     </ul>
                 </div>
             </div>
