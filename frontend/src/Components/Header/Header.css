@@ -42,19 +42,17 @@
 }
 
 
-li{
+.horNav li{
     display: block;
     text-align: center;
     padding: 20px;
     border-radius: 0px 0px 15px 15px;
-}
-
-li{
     color: #ffffff;
     text-decoration: none;
 }
 
-li:hover{
+
+.horNav li:hover{
     background-color: #9C7945;
     color: #001F3F;
     font-weight: 500;
