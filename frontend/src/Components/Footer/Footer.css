@@ -33,6 +33,7 @@
     list-style: none;
     margin-bottom: 5px;
     cursor: pointer;
+    text-align: left;
 }
 .footer-content-left li a, .footer-content-left li a, .footer-content-center li a{
     text-decoration: none;
