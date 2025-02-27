@@ -6,6 +6,7 @@
 #upcomingEvents{
     display: flex;
     text-align: center;
+    margin: 20px;
     margin: 10px auto;  
     max-width: 1200px;
     flex-wrap: wrap;
@@ -13,6 +14,7 @@
     justify-content: center; 
 }
 #firstHalf, #secondHalf {
+    display: inline; 
     display: inline-block;  
     vertical-align: baseline; 
 }
@@ -53,12 +55,6 @@
     margin: 0 auto;
 }
 
-.event-card {
-    flex: 0 0 calc(25% - 20px);
-    max-width: 350px;
-    min-width: 250px;
-}
-
 /* Responsive design */
 @media screen and (max-width: 1024px) {
     .event-card {
@@ -71,7 +67,7 @@
         margin: 20px;
         padding: 15px;
     }
-    
+
     .event-card {
         flex: 0 0 100%;
     }

@@ -27,7 +27,7 @@
 
 .horNav{
     height: 55px;
-    
+    margin-left: 5%;
 }
 
 .horNav ul{
@@ -45,13 +45,10 @@
 .horNav li{
     display: block;
     text-align: center;
+    color: #ffffff;
     padding: 20px;
     border-radius: 0px 0px 15px 15px;
-    color: #ffffff;
     text-decoration: none;
-}
-
-
 .horNav li:hover{
     background-color: #9C7945;
     color: #001F3F;
