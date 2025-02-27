@@ -13,10 +13,10 @@ function Header() {
                 <div className='horNav'>
                     <ul className='menu'>
                         <Link to="/"><li>Home</li></Link>
-                        <Link><li>Events</li></Link>
+                        <Link to="/EventPage"><li>Events</li></Link>
                         <Link><li>Account</li></Link>
-                        <Link to="/about"><li>About</li></Link>
-                        <a href='#footer'><li>Contact</li></a>
+                        <Link to="/About"><li>About</li></Link>
+                        <Link><li>Contact</li></Link>
                     </ul>
                 </div>
             </div>
