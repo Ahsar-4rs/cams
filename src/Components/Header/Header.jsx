@@ -16,7 +16,7 @@ function Header() {
                         <Link to="/EventPage"><li>Events</li></Link>
                         <Link><li>Account</li></Link>
                         <Link to="/About"><li>About</li></Link>
-                        <Link><li>Contact</li></Link>
+                        <Link to="/Contact"><li>Contact</li></Link>
                     </ul>
                 </div>
             </div>
