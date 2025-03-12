@@ -3,10 +3,14 @@ import "./Health.css";
 import reviewImage from "./review.avif";
 import locationImage from "./geolocation.jpg";
 import peerImage from "./psg.png";
+import { useSession } from '../../context/SessionContext';
 
 function Health() {
-  // This can be replaced with session privileges check later
-  const hasReviewPrivilege = false;
+  const { getCurrentAccessRights } = useSession();
+  const rights = getCurrentAccessRights();
+  
+  // Check if user can review health
+  const hasReviewPrivilege = rights.canReviewHealth;
 
   return (
     <div className="health-container">

@@ -1,9 +1,13 @@
 import './LoginRegister.css'
 
 import React, { useState } from 'react'
+import { useSession } from '../../context/SessionContext'
+import { useNavigate } from 'react-router-dom'
 
 function LoginRegister() {
     const [action,setAction]=useState("Login")
+    const { loginAs } = useSession()
+    const navigate = useNavigate()
 
     const [formData,setFormData]=useState({
         username:"",
@@ -17,6 +21,32 @@ function LoginRegister() {
     const loginLink =() =>{
       setAction('Login');
     };
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        
+        if (action === 'Login') {
+            switch(formData.username.toLowerCase()) {
+                case 'student':
+                    loginAs('student')
+                    break
+                case 'faculty':
+                    loginAs('faculty')
+                    break
+                case 'clubrep':
+                    loginAs('clubRep')
+                    break
+                case 'admin':
+                    loginAs('admin')
+                    break
+                default:
+                    loginAs('guest')
+            }
+            navigate('/home')
+        } else {
+            navigate('/home')
+        }
+    }
 
   return (
     <div className={`loginRegister ${action === 'Register' ? 'signup' : 'signin'}`}>
@@ -37,7 +67,9 @@ function LoginRegister() {
         
         </div>
         
-        <button>Submit</button>
+        <form onSubmit={handleSubmit}>
+            <button type="submit">Submit</button>
+        </form>
         {action==='Login'?<p >Don't have an account?<a href='#signup' onClick={registerLink}>Register</a></p> : <p >Already have an account?<a href='#signin' onClick={loginLink}>login</a></p>}
       
        
