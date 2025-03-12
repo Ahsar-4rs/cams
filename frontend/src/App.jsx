@@ -6,7 +6,7 @@ import Footer from './Components/Footer/Footer.jsx';
 import PrivacyPolicyPage from './pages/Privacy-policy/PrivacyPolicy.jsx';
 import About from './Components/About/About.jsx';
 import EventPage from './pages/Events-Page/EventsPage.jsx'
-import Contact from './pages/Events-Page/Contact-Page/Contact.jsx';
+import Contact from './Components/Contact/Contact.jsx';
 
 function App() {
   return (
