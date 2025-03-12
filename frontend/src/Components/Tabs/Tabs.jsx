@@ -5,6 +5,7 @@ import repair from './repair-icon.png'
 import emergency from './emergency-icon.png'
 import report from './report-icon.png'
 import event from './event-icon.png'
+import { Link } from 'react-router-dom'
 
 
 function Tabs() {
@@ -13,27 +14,27 @@ function Tabs() {
     {
         name:"Health",
         icon:health,
-        path:'/',
+        path:'/Health',
     },
     {
         name:"Infrastructure",
         icon:repair,
-        path:'/',
+        path:'/Infra',
     },
     {
         name:"Emergency Amenities",
         icon:emergency,
-        path:'/',
+        path:'/Emergency',
     },
     {
         name:"Social Events",
         icon:event,
-        path:'/',
+        path:'/EventPage',
     },
     {
-        name:"Report",
+        name:"Reports",
         icon:report,
-        path:'/',
+        path:'/Reports',
     }
   ]
   
@@ -46,10 +47,12 @@ function Tabs() {
             
             return(
               <div className='category'>
-                <div className='content'>
+                <Link to={item.path}>
+                  <div className='content'>
                     <img src={item.icon} alt=''/>
                     <h3>{item.name}</h3>
-                </div> 
+                  </div>
+                </Link> 
               </div>
               
             )
