@@ -7,6 +7,7 @@ import PrivacyPolicyPage from './pages/Privacy-policy/PrivacyPolicy.jsx';
 import About from './Components/About/About.jsx';
 import EventPage from './pages/Events-Page/EventsPage.jsx'
 import Contact from './Components/Contact/Contact.jsx';
+import Health from './pages/Health/Health.jsx';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route exact path="/About" element={<About />}/>
             <Route exact path="/EventPage" element={<EventPage />}></Route>
             <Route exact path="/Contact" element={<Contact />}></Route>
+            <Route exact path="/Health" element={<Health />}></Route>
         </Routes>
         <Footer/>
        </BrowserRouter>
