@@ -19,8 +19,8 @@ function App() {
        <Header/>
         <Routes>
             <Route exact path="/" element={<LoginRegister/>} />
-            <Route exact path="/Home" element={<Homepage />} />
-            <Route exact path="/Privacy" element={<PrivacyPolicyPage/>}/>
+            <Route exact path="/home" element={<Homepage/>} />
+            <Route exact path="/privacy" element={<PrivacyPolicyPage/>}/>
             <Route exact path="/About" element={<About />}/>
             <Route exact path="/EventPage" element={<EventPage />}></Route>
             <Route exact path="/Contact" element={<Contact />}></Route>
@@ -33,4 +33,4 @@ function App() {
   );
 }
 
-export default App;
+export default App; 

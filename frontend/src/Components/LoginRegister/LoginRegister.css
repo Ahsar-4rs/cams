@@ -1,76 +1,126 @@
-
-
-.loginRegister{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    background-color: #f3f4f2;
+.loginRegister {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
     padding: 40px;
-    transition: height 0.3s ease;
-}
-.signin{
-    height: 270px;
-}
-
-.signup{
-    height: 320px;
-    transition: height 0.3s ease;
-}
-
-.form-data{
+    width: 400px;
+    margin: 120px auto;
+    box-shadow: 0 8px 32px rgba(0, 31, 63, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    min-height: calc(100vh - 400px);
     display: flex;
     flex-direction: column;
-    text-align: center;
-    gap: 15px;
+    justify-content: center;
 }
 
-
-.loginRegister .form-data input{
-    padding: 8px;
+.loginRegister .title {
     text-align: center;
-    border: none;
-    border-bottom: solid 2px #d2d0d0;
+    margin-bottom: 30px;
 }
 
-.terms{
-    
-    margin-left: 10%;
+.loginRegister .title h2 {
+    color: #001F3F;
+    font-size: 2.5em;
+    margin: 0;
+    font-weight: 600;
+}
+
+.form-data {
     display: flex;
-    flex-direction: row;
-    font-size: small;
-}
-.terms label{
-    
-    font-size: 9pt;
-    text-align: left;
-    padding: 6px;
-    font-family: serif;
-}
-.terms label a{
-    color: blue;
-}
-.loginRegister button{
-    width: 100%;
-    background-color: #5d4c02;
-    color: white;
-    padding: 10px;
-    border-radius: 40px;
-    border: none;
-    outline: none;
-    box-shadow: 0 0 10px rgba(99, 102, 142, 0.7);
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 700;
-    
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 25px;
 }
 
-.loginRegister p{
-    font-size: 12.5px;
-    text-align: center;
-    margin: 5px 0 7px;
-    color: rgb(0, 0, 0);
+.form-data input {
+    padding: 15px;
+    border: 2px solid #e1e1e1;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
 }
-.loginRegister p a{
-    color: #3c2ce5;
+
+.form-data input:focus {
+    border-color: #001F3F;
+    outline: none;
+}
+
+.terms {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.terms input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #001F3F;
+}
+
+.terms a {
+    color: #001F3F;
+    text-decoration: none;
     font-weight: 500;
+}
+
+.loginRegister button {
+    width: 100%;
+    padding: 15px;
+    background: #001F3F;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.loginRegister button:hover {
+    background: #003366;
+    transform: translateY(-2px);
+}
+
+.loginRegister p {
+    text-align: center;
+    margin-top: 20px;
+    color: #666;
+}
+
+.loginRegister p a {
+    color: #001F3F;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+/* Animation for email input */
+.email-input {
+    max-height: 0;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.email-input.show {
+    max-height: 50px;
+    opacity: 1;
+}
+
+/* Background pattern */
+.loginRegister::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(0,31,63,0.05) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(0,31,63,0.05) 25%, transparent 25%);
+    background-size: 20px 20px;
+    z-index: -1;
+    border-radius: 20px;
 }

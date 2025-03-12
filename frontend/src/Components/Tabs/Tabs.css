@@ -1,30 +1,163 @@
-.tabs{
-   display: grid;
-   grid-template-columns: repeat(4,25%);
-    grid-template-rows: repeat(2,200px);
-    gap: 20px 20px;
-    margin: 0px 20px;
+.tabs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 300px;  /* Fixed container height */
 }
-.category{
-    background-color: #001F3F;
+
+/* Special case for admin (5 tabs) */
+.tabs.admin-tabs {
+    grid-template-columns: repeat(5, 1fr);  /* 5 columns instead of 4 */
+    gap: 20px;  /* Reduced from 20px to 15px */
+}
+
+.tabs.admin-tabs .category {
+    transform: scale(0.90);  /* Make admin tabs slightly smaller */
+    transform-origin: center;
+}
+
+.tabs.admin-tabs .category:hover {
+    transform: scale(0.9);  /* Adjust hover scale for admin tabs */
+}
+
+.category {
+    background: linear-gradient(135deg, #001F3F 0%, #003366 100%);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1;
+}
+
+.category::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .category:hover {
-    cursor: pointer;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 31, 63, 0.2);
 }
 
-.category h3{
-    color: white;
-    font-weight: 400;
-    font-size: 11pt;
-    text-align: center;
-    margin: 0;
+.category:hover::before {
+    opacity: 1;
 }
-.category .content{
-    padding: 30px 24px;
-    margin: auto;
-    gap: 15px;
+
+.content {
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    padding: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.content img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    filter: brightness(0) invert(1);
+    transition: transform 0.3s ease;
+}
+
+.category:hover .content img {
+    transform: scale(1.1);
+}
+
+.category h3 {
+    color: white;
+    font-weight: 500;
+    font-size: 1em;
+    text-align: center;
+    margin: 0;
+    transition: transform 0.3s ease;
+}
+
+.category:hover h3 {
+    transform: scale(1.05);
+}
+
+/* Add subtle animation for tab appearance */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.category {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+/* Stagger the animations */
+.category:nth-child(2) { animation-delay: 0.1s; }
+.category:nth-child(3) { animation-delay: 0.2s; }
+.category:nth-child(4) { animation-delay: 0.3s; }
+.category:nth-child(5) { animation-delay: 0.4s; }
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .tabs {
+        max-width: 900px;
+    }
+    .category {
+        width: calc((100% - 50px) / 3);  /* 3 items per row */
+    }
+}
+
+@media (max-width: 768px) {
+    .tabs {
+        max-width: 600px;
+    }
+    .category {
+        width: calc((100% - 25px) / 2);  /* 2 items per row */
+    }
+}
+
+@media (max-width: 480px) {
+    .tabs {
+        max-width: 100%;
+    }
+    .category {
+        width: 100%;  /* 1 item per row */
+    }
+}
+
+.tab-link-container {
+    height: 100%;
+    width: 100%;
+}
+
+.tab-link-container a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+}
+
+/* Ensure clicks only work within the category box */
+.category {
+    pointer-events: none;
+}
+
+.tab-link-container {
+    pointer-events: auto;
 }
