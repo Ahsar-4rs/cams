@@ -1,0 +1,37 @@
+.Explore{
+    margin: 0px 0px 40px 0px;
+}
+.main-flex{
+    width: 99%;
+    margin: auto;
+}
+
+#main-img{
+    width: 55%;
+    float: left;
+}
+#grad{
+    height: 480px;
+    width: 100%;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    
+    width: 45%;
+    height: 500px;
+}
+#box1{
+    height: 96%;
+    background-color:  #001F3F;
+    border-left: solid #B99663 4px;
+}
+#box1 h2{
+    display: flex;
+    text-decoration: solid;
+    color: hsl(43, 100%, 40%);
+    min-height: 100%;
+    align-items: center;
+    justify-content: center;
+}
