@@ -10,6 +10,7 @@ import Contact from './Components/Contact/Contact.jsx';
 import Health from './pages/Health/Health.jsx';
 import { SessionProvider } from './context/SessionContext.jsx';
 import LoginRegister from './Components/LoginRegister/LoginRegister.jsx';
+import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute.jsx';
 
 function App() {
   return (
@@ -18,13 +19,19 @@ function App() {
        <BrowserRouter>
        <Header/>
         <Routes>
+            //Public Routes
             <Route exact path="/" element={<LoginRegister/>} />
             <Route exact path="/Home" element={<Homepage />} />
             <Route exact path="/Privacy" element={<PrivacyPolicyPage/>}/>
             <Route exact path="/About" element={<About />}/>
-            <Route exact path="/EventPage" element={<EventPage />}></Route>
-            <Route exact path="/Contact" element={<Contact />}></Route>
-            <Route exact path="/Health" element={<Health />}></Route>
+            <Route exact path="/Eventpage" element={<EventPage />}/>
+            <Route exact path="/Contact" element={<Contact />}/>
+            
+            //Protected Routes
+            <Route exact path="/Health" element={
+                <ProtectedRoute requiredAccess="canAccessHealth"><Health /></ProtectedRoute>
+              }
+            />
         </Routes>
         <Footer/>
        </BrowserRouter>

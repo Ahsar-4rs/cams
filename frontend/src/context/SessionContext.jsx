@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 // Define privilege levels as constants for better maintainability
 export const PRIVILEGE_LEVELS = {
@@ -81,8 +81,16 @@ export const ACCESS_RIGHTS = {
 const SessionContext = createContext();
 
 export function SessionProvider({ children }) {
-    // Initialize with GUEST privileges
-    const [privilegeLevel, setPrivilegeLevel] = useState(PRIVILEGE_LEVELS.GUEST);
+    // Initialize with GUEST privileges or retrieve from localStorage
+    const [privilegeLevel, setPrivilegeLevel] = useState(() => {
+        const savedLevel = localStorage.getItem('privilegeLevel');
+        return savedLevel ? JSON.parse(savedLevel) : PRIVILEGE_LEVELS.GUEST;
+    });
+
+    // Update localStorage whenever privilegeLevel changes
+    useEffect(() => {
+        localStorage.setItem('privilegeLevel', JSON.stringify(privilegeLevel));
+    }, [privilegeLevel]);
 
     // For testing purposes - hardcoded user types
     const loginAs = (userType) => {
