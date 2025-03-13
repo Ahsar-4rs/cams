@@ -1,12 +1,88 @@
-
-.section1{
-    margin: 50px 20px 30px 20px;
-    
+.section1 {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    background: #f5f7fa;
+    padding: 20px;
 }
-.login{
-    width: 29%;
-    padding: 0px 40px 0px 20px;
+
+.explore-section {
+    display: flex;
+    gap: 30px;
+    margin: 20px auto;
+    max-width: 1400px;
+}
+
+.tabs-part {
+    flex: 2;
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 31, 63, 0.08);
+}
+
+/* Hide the entire tabs container when empty */
+.tabs-part:has(.tabs:empty) {
+    display: none;
+}
+
+.event-banner-part {
+    flex: 1;
+    /* Remove max-width to allow it to expand when tabs are hidden */
+}
+
+/* When tabs are hidden, let event banner take full width */
+.explore-section:has(.tabs-part:has(.tabs:empty)) .event-banner-part {
+    max-width: 100%;
+}
+
+.tabs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 200px);
+    gap: 20px;
+}
+
+/* Add a title for the explore section */
+.explore-title {
+    margin: 0 0 20px 0;
+    color: #001F3F;
+    font-size: 2em;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* When tabs are empty, collapse the space */
+.tabs:empty {
+    display: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure the tabs container stays within bounds */
+.tabs-part {
+    overflow: hidden;
+}
+
+/* Ensure smooth transition between sections */
+#upcomingEvents {
+    margin-top: 20px;
+}
+
+/* Center login when no tabs are present */
+.tabs:empty ~ .login {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+    .explore-section {
+        flex-direction: column;
+    }
     
+    .tabs-part, .event-banner-part {
+        max-width: 100%;
+    }
 }

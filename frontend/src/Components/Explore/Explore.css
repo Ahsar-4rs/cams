@@ -1,37 +1,90 @@
-.Explore{
-    margin: 0px 0px 40px 0px;
-}
-.main-flex{
-    width: 99%;
-    margin: auto;
-}
-
-#main-img{
-    width: 55%;
-    float: left;
-}
-#grad{
-    height: 480px;
+.explore {
     width: 100%;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
 }
 
-.content{
-    display: flex;
-    flex-direction: column;
-    
-    width: 45%;
-    height: 500px;
+.explore-content {
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
 }
-#box1{
-    height: 96%;
-    background-color:  #001F3F;
-    border-left: solid #B99663 4px;
+
+.explore-content img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
 }
-#box1 h2{
-    display: flex;
-    text-decoration: solid;
-    color: hsl(43, 100%, 40%);
-    min-height: 100%;
-    align-items: center;
-    justify-content: center;
+
+.explore-content:hover img {
+    transform: scale(1.02);
+}
+
+.info-box {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 80%;
+}
+
+.info-box h2 {
+    margin: 0 0 10px 0;
+    color: #001F3F;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.info-box p {
+    margin: 0;
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .explore {
+        padding: 20px 10px;
+    }
+
+    .info-box {
+        bottom: 20px;
+        left: 20px;
+        padding: 15px 20px;
+    }
+
+    .info-box h2 {
+        font-size: 1.4rem;
+    }
+
+    .info-box p {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .info-box {
+        bottom: 15px;
+        left: 15px;
+        padding: 12px 15px;
+    }
+
+    .info-box h2 {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+    }
+
+    .info-box p {
+        font-size: 0.9rem;
+    }
 }
