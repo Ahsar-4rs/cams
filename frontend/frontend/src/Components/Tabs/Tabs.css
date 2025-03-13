@@ -1,0 +1,22 @@
+.tabs{
+   display: grid;
+   grid-template-columns: repeat(4,25%);
+    grid-template-rows: repeat(2,200px);
+    gap: 20px 20px;
+    margin: 0px 20px;
+}
+.category{
+    background-color: #001F3F;
+    
+}
+
+.category h3{
+    color: white;
+    font-weight: 400;
+    font-size: 11pt;
+}
+.category .content{
+    padding: 30px 24px;
+    margin: auto;
+    gap: 15px;
+}
