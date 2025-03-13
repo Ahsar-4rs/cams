@@ -32,6 +32,8 @@ function App() {
                 <ProtectedRoute requiredAccess="canAccessHealth"><Health /></ProtectedRoute>
               }
             />
+            <Route exact path="/EventPage" element={<EventPage />}></Route>
+            <Route exact path="/Contact" element={<Contact />}/>
         </Routes>
         <Footer/>
        </BrowserRouter>
