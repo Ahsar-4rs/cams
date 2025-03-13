@@ -1,0 +1,12 @@
+
+.section1{
+    margin: 50px 20px 30px 20px;
+    
+    display: flex;
+    flex-direction: row;
+}
+.login{
+    width: 29%;
+    padding: 0px 40px 0px 20px;
+    
+}
