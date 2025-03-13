@@ -1,4 +1,3 @@
-
 /* Header */
 #wm-header {
     float: left;
@@ -49,9 +48,22 @@
     padding: 20px;
     border-radius: 0px 0px 15px 15px;
     text-decoration: none;
+}
+
 .horNav li:hover{
     background-color: #9C7945;
     color: #001F3F;
     font-weight: 500;
 }
+
+/* Add these styles to your existing Header.css */
+.logout-button {
+    cursor: pointer;
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.logout-button:hover {
+    color: #9C7945;
+    font-weight: 500;
 }
