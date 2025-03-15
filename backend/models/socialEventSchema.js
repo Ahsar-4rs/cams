@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import validator from "validator"
-import bg from "./bgr.jpg"
+
 const socialEventSchema=new mongoose.Schema({
     eventName:{
         type:String,
@@ -9,8 +9,7 @@ const socialEventSchema=new mongoose.Schema({
     },
     eventImage:{
         type:String,
-        required:true,
-        default:bg,
+        default:"bgr.jpg",
     },
     eventDate:{
         type:Date,
@@ -27,7 +26,7 @@ const socialEventSchema=new mongoose.Schema({
             message: "Enter time in [HH:MM:SS] format!!"
         }
     },
-    eventVenue:{
+    eventVenu:{
         type: String,
         required: true,
         default:"Auditorium",

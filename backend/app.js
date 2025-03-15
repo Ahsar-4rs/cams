@@ -4,6 +4,8 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
 import { dbConnection } from "./database/dbConnection.js";
+import socialEventRouter from "./router/socialEventRouter.js"
+import {errorMiddleware} from './middlewares/errorMiddleware.js'
 
 
 const app= express();
@@ -28,6 +30,8 @@ app.use(
     })
 );
 
-dbConnection()
+app.use("/api/v1/socialEvent",socialEventRouter);
 
+dbConnection()
+app.use(errorMiddleware);
 export default app;
