@@ -11,6 +11,9 @@ import Health from './pages/Health/Health.jsx';
 import { SessionProvider } from './context/SessionContext.jsx';
 import LoginRegister from './Components/LoginRegister/LoginRegister.jsx';
 import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute.jsx';
+import Health_Location from './pages/Health/Health-Location.jsx';
+import Infra_Location from './pages/Infrastructure/Infra.jsx';
+import Emergency from './pages/Emergency/Emergency.jsx';
 
 function App() {
   return (
@@ -26,14 +29,25 @@ function App() {
             <Route exact path="/About" element={<About />}/>
             <Route exact path="/Eventpage" element={<EventPage />}/>
             <Route exact path="/Contact" element={<Contact />}/>
-            
+            <Route exact path="/EventPage" element={<EventPage />}></Route>
+            <Route exact path="/Contact" element={<Contact />}/>
             //Protected Routes
             <Route exact path="/Health" element={
                 <ProtectedRoute requiredAccess="canAccessHealth"><Health /></ProtectedRoute>
               }
             />
-            <Route exact path="/EventPage" element={<EventPage />}></Route>
-            <Route exact path="/Contact" element={<Contact />}/>
+            <Route exact path="/Health-Location" element={
+              <ProtectedRoute requiredAccess="canAccessHealth"><Health_Location /></ProtectedRoute>
+              }
+            />
+            <Route exact path="/Infra" element={
+              <ProtectedRoute requiredAccess="canAccessInfra"><Infra_Location /></ProtectedRoute>
+              }
+            />
+            <Route exact path="/Emergency" element={
+              <ProtectedRoute requiredAccess="canAccessEmergency"><Emergency /></ProtectedRoute>
+              }
+            />
         </Routes>
         <Footer/>
        </BrowserRouter>
