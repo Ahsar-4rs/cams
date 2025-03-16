@@ -9,6 +9,7 @@ const socialEventSchema=new mongoose.Schema({
     },
     eventImage:{
         type:String,
+        required:false,
         default:"bgr.jpg",
     },
     eventDate:{

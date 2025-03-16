@@ -12,3 +12,4 @@ export const postSocialEvent = catchAsyncErrors(async(req,res,next)=>{
         message:"Social Event Entry created Successfully.....",
     });
 });
+
