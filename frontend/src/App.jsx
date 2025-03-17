@@ -14,6 +14,10 @@ import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute.jsx';
 import Health_Location from './pages/Health/Health-Location.jsx';
 import Infra_Location from './pages/Infrastructure/Infra.jsx';
 import Emergency from './pages/Emergency/Emergency.jsx';
+import EventManagement from './pages/EventManagement/EventManagement.jsx';
+import AddEvent from './pages/EventManagement/AddEvent.jsx';
+import EditEvent from './pages/EventManagement/EditEvent.jsx';
+import DeleteEvent from './pages/EventManagement/DeleteEvent.jsx';
 
 function App() {
   return (
@@ -46,6 +50,22 @@ function App() {
             />
             <Route exact path="/Emergency" element={
               <ProtectedRoute requiredAccess="canAccessEmergency"><Emergency /></ProtectedRoute>
+              }
+            />
+            <Route exact path="/EventManagement" element={
+              <ProtectedRoute requiredAccess="canManageEvents"><EventManagement /></ProtectedRoute>
+              }
+            />
+            <Route exact path="/AddEvent" element={
+              <ProtectedRoute requiredAccess="canManageEvents"><AddEvent /></ProtectedRoute>
+              }
+            />
+            <Route exact path="/EditEvent" element={
+              <ProtectedRoute requiredAccess="canManageEvents"><EditEvent /></ProtectedRoute>
+              }
+            />
+            <Route exact path="/DeleteEvent" element={
+              <ProtectedRoute requiredAccess="canManageEvents"><DeleteEvent /></ProtectedRoute>
               }
             />
         </Routes>

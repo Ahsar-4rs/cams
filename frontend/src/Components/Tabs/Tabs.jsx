@@ -33,9 +33,9 @@ function Tabs() {
             visible: rights.canAccessEmergency
         },
         {
-            name: "Social Events",
+            name: "Event Management",
             icon: event,
-            path: '/EventPage',
+            path: '/EventManagement',
             visible: rights.canManageEvents
         },
         {

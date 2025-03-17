@@ -1,0 +1,92 @@
+/* Container for the form */
+.add-event-container {
+    max-width: 600px; /* Limit the width of the form */
+    margin: 20px auto; /* Center the form horizontally */
+    padding: 20px; /* Add padding around the form */
+    background-color: #f9f9f9; /* Light background color */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Heading styles */
+.add-event-container h2 {
+    text-align: center; /* Center the heading */
+    color: #333; /* Dark text color */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+/* Form input styles */
+.add-event-container input[type="text"],
+.add-event-container input[type="date"],
+.add-event-container input[type="time"],
+.add-event-container input[type="file"],
+.add-event-container textarea,
+.add-event-container select {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding inside the input */
+    margin: 10px 0; /* Space between inputs */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    transition: border-color 0.3s; /* Smooth transition for border color */
+}
+
+/* Focus effect for inputs */
+.add-event-container input:focus,
+.add-event-container textarea:focus,
+.add-event-container select:focus {
+    border-color: #007bff; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Button styles */
+.add-event-container button {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding inside the button */
+    background-color: #007bff; /* Primary color */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+/* Button hover effect */
+.add-event-container button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Message styles */
+.add-event-container p {
+    text-align: center; /* Center the message */
+    color: #28a745; /* Green color for success messages */
+    margin-top: 15px; /* Space above the message */
+}
+
+/* Image upload container */
+.image-upload-container {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    margin: 10px 0; /* Space above and below */
+}
+
+/* Image preview styles */
+.image-preview {
+    width: 100px; /* Set a fixed width for the image preview */
+    height: 100px; /* Set a fixed height for the image preview */
+    object-fit: cover; /* Ensure the image covers the area */
+    border-radius: 4px; /* Rounded corners */
+    margin-right: 20px; /* Space between image and input */
+}
+
+/* Image input styles */
+.image-input {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack label and input vertically */
+}
+
+/* Input styles for file input */
+.image-input input[type="file"] {
+    margin-bottom: 5px; /* Space below the file input */
+}
