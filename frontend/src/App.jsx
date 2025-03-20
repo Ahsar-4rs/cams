@@ -7,36 +7,47 @@ import PrivacyPolicyPage from './pages/Privacy-policy/PrivacyPolicy.jsx';
 import About from './Components/About/About.jsx';
 import EventPage from './pages/Events-Page/EventsPage.jsx'
 import Contact from './Components/Contact/Contact.jsx';
+import Account from './Components/Account/Account.jsx';
 import Health from './pages/Health/Health.jsx';
 import { SessionProvider } from './context/SessionContext.jsx';
 import LoginRegister from './Components/LoginRegister/LoginRegister.jsx';
 import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute.jsx';
+import PeerSupport from './pages/Health/PeerSupport.jsx'; 
+import ChatPage from './pages/Health/ChatPage.jsx';  
 
 function App() {
   return (
     <div className="App">
       <SessionProvider>
-       <BrowserRouter>
-       <Header/>
-        <Routes>
+        <BrowserRouter>
+          <Header />
+          <Routes>
             //Public Routes
-            <Route exact path="/" element={<LoginRegister/>} />
+            <Route exact path="/" element={<LoginRegister />} />
             <Route exact path="/Home" element={<Homepage />} />
-            <Route exact path="/Privacy" element={<PrivacyPolicyPage/>}/>
-            <Route exact path="/About" element={<About />}/>
-            <Route exact path="/Eventpage" element={<EventPage />}/>
-            <Route exact path="/Contact" element={<Contact />}/>
-            
+            <Route exact path="/Privacy" element={<PrivacyPolicyPage />} />
+            <Route exact path="/About" element={<About />} />
+            <Route exact path="/Eventpage" element={<EventPage />} />
+            <Route exact path="/Contact" element={<Contact />} />
+            <Route exact path="/Account" element={<Account />} />
+
             //Protected Routes
             <Route exact path="/Health" element={
-                <ProtectedRoute requiredAccess="canAccessHealth"><Health /></ProtectedRoute>
-              }
+              <ProtectedRoute requiredAccess="canAccessHealth"><Health /></ProtectedRoute>
+            }
             />
-            <Route exact path="/EventPage" element={<EventPage />}></Route>
-            <Route exact path="/Contact" element={<Contact />}/>
-        </Routes>
-        <Footer/>
-       </BrowserRouter>
+
+            <Route exact path="/Peersupport" element={ 
+              <ProtectedRoute requiredAccess="canAccessHealth"><PeerSupport /></ProtectedRoute>
+            } 
+            />
+            <Route path="/chat/:disease" element={
+              <ProtectedRoute requiredAccess="canAccessHealth"><ChatPage/>
+              </ProtectedRoute>} 
+            />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
       </SessionProvider>
     </div>
   );
