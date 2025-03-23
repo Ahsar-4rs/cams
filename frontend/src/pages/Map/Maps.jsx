@@ -8,6 +8,11 @@ function Maps() {
       <h1>
         TKM COLLEGE OF ENGINEERING
       </h1>
+      <ul>
+        <li>Ground Floor</li>
+        <li>First Floor</li>
+        <li>Second Floor</li>
+      </ul>
       <OpenStreetMapOverlay/>
     </div>
   )
