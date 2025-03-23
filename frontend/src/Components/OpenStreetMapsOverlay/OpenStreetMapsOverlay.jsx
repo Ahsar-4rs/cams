@@ -11,12 +11,12 @@ const rotationStyle = {
 const OpenStreetMapOverlay = () => {
   const center = [8.914, 76.632]; // Centered on TKM College
   const imageBounds = [
-    [8.913400, 76.631394], // Bottom Left
+    [8.913300, 76.631394], // Bottom Left
     [8.914956, 76.632824], // Top Right
   ];
 
   const overlayImageUrl =
-    "https://raw.githubusercontent.com/Ahsar-4rs/cams/main/map%20API/svg%20files/MAIN%20BLOCK%20GF_coloured-full.svg?raw=true";
+    "https://raw.githubusercontent.com/Ahsar-4rs/cams/main/map%20API/svg%20files/MAIN%20BLOCK%20GF_coloured-full.svg";
 
   return (
     <MapContainer
@@ -29,9 +29,11 @@ const OpenStreetMapOverlay = () => {
     >
       {/* Label-Free OpenStreetMap Tiles */}
       <TileLayer
-        url="https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png"
-        attribution='&copy; <a href="https://carto.com/">CARTO</a>'
-      />
+  url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+  attribution='&copy; <a href="https://www.esri.com/en-us/home">Esri</a>'
+/>
+
+
 
       {/* Rotated Overlay Image */}
       <ImageOverlay 
