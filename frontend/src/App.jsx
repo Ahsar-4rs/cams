@@ -11,6 +11,8 @@ import Health from './pages/Health/Health.jsx';
 import { SessionProvider } from './context/SessionContext.jsx';
 import LoginRegister from './Components/LoginRegister/LoginRegister.jsx';
 import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute.jsx';
+import Maps from './pages/Map/Maps.jsx';
+
 
 function App() {
   return (
@@ -34,6 +36,7 @@ function App() {
             />
             <Route exact path="/EventPage" element={<EventPage />}></Route>
             <Route exact path="/Contact" element={<Contact />}/>
+            <Route exact path="/map" element={<Maps/>}/>
         </Routes>
         <Footer/>
        </BrowserRouter>

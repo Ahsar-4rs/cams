@@ -7,8 +7,8 @@
    width="1588"
    height="1122.6667"
    viewBox="0 0 1588 1122.6667"
-   sodipodi:docname="MAIN BLOCK FF (1).svg"
-   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="MAIN BLOCK FF_coloured-full.svg"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,15 +23,17 @@
      inkscape:pagecheckerboard="0"
      showgrid="false"
      inkscape:zoom="2"
-     inkscape:cx="1788.5"
-     inkscape:cy="587.25"
+     inkscape:cx="1153"
+     inkscape:cy="630.25"
      inkscape:window-width="1920"
-     inkscape:window-height="991"
-     inkscape:window-x="-9"
-     inkscape:window-y="-9"
+     inkscape:window-height="974"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer3"
-     showguides="false" />
+     inkscape:current-layer="DSP_LAB-232_A"
+     showguides="false"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
   <defs
      id="defs6">
     <clipPath
@@ -4568,16 +4570,6 @@
        style="stroke-width:0.16">D</tspan></text>
   <text
      xml:space="preserve"
-     style="font-variant:normal;font-weight:normal;font-size:1.87488px;font-family:Swis721CnBT;-inkscape-font-specification:Swiss721BT-RomanCondensed;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16"
-     id="text3976"
-     x="492.58667"
-     y="706.93341"><tspan
-       x="492.58667"
-       y="706.93341"
-       id="tspan3974"
-       style="stroke-width:0.16">D</tspan></text>
-  <text
-     xml:space="preserve"
      style="font-variant:normal;font-weight:normal;font-size:6.56256px;font-family:Swis721CnBT;-inkscape-font-specification:Swiss721BT-RomanCondensed;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16"
      id="text4026"
      x="1154.6666"
@@ -4713,17 +4705,6 @@
     </g>
     <g
        id="STAFF_229">
-      <text
-         xml:space="preserve"
-         style="font-variant:normal;font-weight:normal;font-size:9.37504px;font-family:Swis721CnBT;-inkscape-font-specification:Swiss721BT-RomanCondensed;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16"
-         id="text3414"
-         x="1088.9066"
-         y="701.1734"
-         transform="translate(4e-7)"><tspan
-           x="1088.9066 1093.5754 1098.2443"
-           y="701.1734"
-           id="tspan3412"
-           style="stroke-width:0.16">229</tspan></text>
       <text
          xml:space="preserve"
          style="font-variant:normal;font-weight:normal;font-size:9.37504px;font-family:Swis721CnBT;-inkscape-font-specification:Swiss721BT-RomanCondensed;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16"
@@ -8050,17 +8031,6 @@
        id="path1600" />
     <g
        id="g40226">
-      <text
-         xml:space="preserve"
-         style="font-variant:normal;font-weight:normal;font-size:9.37504px;font-family:Swis721CnBT;-inkscape-font-specification:Swiss721BT-RomanCondensed;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16"
-         id="text3406"
-         x="1137.8667"
-         y="643.89337"
-         transform="translate(4e-7)"><tspan
-           x="1137.8667 1142.5354 1147.2042"
-           y="643.89337"
-           id="tspan3404"
-           style="stroke-width:0.16">231</tspan></text>
       <text
          xml:space="preserve"
          style="font-variant:normal;font-weight:normal;font-size:9.37504px;font-family:Swis721CnBT;-inkscape-font-specification:Swiss721BT-RomanCondensed;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16"
@@ -11700,17 +11670,6 @@
            y="677.81342"
            id="tspan3716"
            style="stroke-width:0.16">Staff</tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-variant:normal;font-weight:normal;font-size:9.37504px;font-family:Swis721CnBT;-inkscape-font-specification:Swiss721BT-RomanCondensed;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16"
-         id="text3828"
-         x="1169.5466"
-         y="672.69342"
-         transform="translate(4e-7)"><tspan
-           x="1169.5466"
-           y="672.69342"
-           id="tspan3826"
-           style="stroke-width:0.16">A</tspan></text>
       <path
          d="m 1149.5467,680.5334 h 31.52"
          style="fill:none;stroke:#000000;stroke-width:0.96;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -12380,17 +12339,6 @@
        id="LIBRARY-228">
       <text
          xml:space="preserve"
-         style="font-variant:normal;font-weight:normal;font-size:9.37504px;font-family:Swis721CnBT;-inkscape-font-specification:Swiss721BT-RomanCondensed;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16"
-         id="text3574"
-         x="1037.8667"
-         y="645.65338"
-         transform="translate(4e-7)"><tspan
-           x="1037.8667 1042.5354 1047.2042"
-           y="645.65338"
-           id="tspan3572"
-           style="stroke-width:0.16">228</tspan></text>
-      <text
-         xml:space="preserve"
          style="font-variant:normal;font-weight:normal;font-size:6.56256px;font-family:Swis721CnBT;-inkscape-font-specification:Swiss721BT-RomanCondensed;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16"
          id="text3648"
          x="1038.3467"
@@ -12485,17 +12433,6 @@
     </g>
     <g
        id="COMPUTER_LAB-230">
-      <text
-         xml:space="preserve"
-         style="font-variant:normal;font-weight:normal;font-size:9.37504px;font-family:Swis721CnBT;-inkscape-font-specification:Swiss721BT-RomanCondensed;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16"
-         id="text3410"
-         x="1092.7467"
-         y="644.85339"
-         transform="translate(4e-7)"><tspan
-           x="1092.7467 1097.4154 1102.0842"
-           y="644.85339"
-           id="tspan3408"
-           style="stroke-width:0.16">230</tspan></text>
       <text
          xml:space="preserve"
          style="font-variant:normal;font-weight:normal;font-size:9.37504px;font-family:Swis721CnBT;-inkscape-font-specification:Swiss721BT-RomanCondensed;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16"
@@ -12628,16 +12565,6 @@
          d="m 1068.5867,578.7734 h 10.56"
          style="fill:none;stroke:#000000;stroke-width:0.96;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
          id="path2594" />
-      <text
-         xml:space="preserve"
-         style="font-variant:normal;font-weight:normal;font-size:1.87488px;font-family:Swis721CnBT;-inkscape-font-specification:Swiss721BT-RomanCondensed;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16"
-         id="text2598"
-         x="1072.2667"
-         y="577.01343"><tspan
-           x="1072.2667 1073.7498"
-           y="577.01343"
-           id="tspan2596"
-           style="stroke-width:0.16">W2</tspan></text>
       <path
          d="m 1115.1467,577.6534 h 10.56"
          style="fill:none;stroke:#000000;stroke-width:0.96;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -12654,16 +12581,6 @@
          d="m 1115.1467,578.7734 h 10.56"
          style="fill:none;stroke:#000000;stroke-width:0.96;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
          id="path2606" />
-      <text
-         xml:space="preserve"
-         style="font-variant:normal;font-weight:normal;font-size:1.87488px;font-family:Swis721CnBT;-inkscape-font-specification:Swiss721BT-RomanCondensed;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16"
-         id="text2610"
-         x="1118.8267"
-         y="577.01343"><tspan
-           x="1118.8267 1120.3097"
-           y="577.01343"
-           id="tspan2608"
-           style="stroke-width:0.16">W2</tspan></text>
       <path
          d="m 1127.7867,577.6534 h 10.56"
          style="fill:none;stroke:#000000;stroke-width:0.96;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -12680,16 +12597,6 @@
          d="m 1127.7867,578.7734 h 10.56"
          style="fill:none;stroke:#000000;stroke-width:0.96;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
          id="path2618" />
-      <text
-         xml:space="preserve"
-         style="font-variant:normal;font-weight:normal;font-size:1.87488px;font-family:Swis721CnBT;-inkscape-font-specification:Swiss721BT-RomanCondensed;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16"
-         id="text2622"
-         x="1131.4667"
-         y="577.01343"><tspan
-           x="1131.4667 1132.9497"
-           y="577.01343"
-           id="tspan2620"
-           style="stroke-width:0.16">W2</tspan></text>
       <path
          d="m 1079.1467,580.0534 v -2.4"
          style="fill:none;stroke:#000000;stroke-width:0.96;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -13921,17 +13828,6 @@
        id="DIGITAL_EC_LAB">
       <text
          xml:space="preserve"
-         style="font-variant:normal;font-weight:normal;font-size:9.37504px;font-family:Swis721CnBT;-inkscape-font-specification:Swiss721BT-RomanCondensed;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16"
-         id="text3418"
-         x="980.74664"
-         y="654.2934"
-         transform="translate(4e-7)"><tspan
-           x="980.74664 985.41541 990.08423"
-           y="654.2934"
-           id="tspan3416"
-           style="stroke-width:0.16">227</tspan></text>
-      <text
-         xml:space="preserve"
          style="font-variant:normal;font-weight:normal;font-size:6.56256px;font-family:Swis721CnBT;-inkscape-font-specification:Swiss721BT-RomanCondensed;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16"
          id="text3816"
          x="980.36896"
@@ -14372,17 +14268,6 @@
            y="618.93341"
            id="tspan4028"
            style="stroke-width:0.16">LAB</tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-variant:normal;font-weight:normal;font-size:9.37504px;font-family:Swis721CnBT;-inkscape-font-specification:Swiss721BT-RomanCondensed;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16"
-         id="text4264"
-         x="1169.2267"
-         y="632.05341"
-         transform="translate(4e-7)"><tspan
-           x="1169.2267 1173.8954 1178.5642"
-           y="632.05341"
-           id="tspan4262"
-           style="stroke-width:0.16">232</tspan></text>
       <path
          d="m 1185.2267,577.6534 h 1.12"
          style="fill:none;stroke:#000000;stroke-width:0.96;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -14419,16 +14304,6 @@
          d="m 1186.3467,578.7734 h 10.56"
          style="fill:none;stroke:#000000;stroke-width:0.96;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
          id="path2642" />
-      <text
-         xml:space="preserve"
-         style="font-variant:normal;font-weight:normal;font-size:1.87488px;font-family:Swis721CnBT;-inkscape-font-specification:Swiss721BT-RomanCondensed;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16"
-         id="text2646"
-         x="1190.0266"
-         y="577.01343"><tspan
-           x="1190.0266 1191.5098"
-           y="577.01343"
-           id="tspan2644"
-           style="stroke-width:0.16">W2</tspan></text>
       <path
          d="m 1185.2267,577.6534 v 2.4"
          style="fill:none;stroke:#000000;stroke-width:0.96;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -14441,30 +14316,9 @@
          d="m 1196.9067,580.0534 v -2.4"
          style="fill:none;stroke:#000000;stroke-width:0.96;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
          id="path800" />
-      <text
-         xml:space="preserve"
-         style="font-variant:normal;font-weight:normal;font-size:1.87488px;font-family:Swis721CnBT;-inkscape-font-specification:Swiss721BT-RomanCondensed;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16"
-         id="text2634"
-         x="1178.3467"
-         y="577.01343"><tspan
-           x="1178.3467 1179.8297"
-           y="577.01343"
-           id="tspan2632"
-           style="stroke-width:0.16">W2</tspan></text>
     </g>
     <g
        id="DSP_LAB-232_A">
-      <text
-         xml:space="preserve"
-         style="font-variant:normal;font-weight:normal;font-size:9.37504px;font-family:Swis721CnBT;-inkscape-font-specification:Swiss721BT-RomanCondensed;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16"
-         id="text3402"
-         x="1204.7467"
-         y="642.93341"
-         transform="translate(4e-7)"><tspan
-           x="1204.7467 1209.4154 1214.0842 1218.7531 1221.0874"
-           y="642.93341"
-           id="tspan3400"
-           style="stroke-width:0.16">232 A</tspan></text>
       <text
          xml:space="preserve"
          style="font-variant:normal;font-weight:normal;font-size:9.37504px;font-family:Swis721CnBT;-inkscape-font-specification:Swiss721BT-RomanCondensed;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16"
@@ -14587,30 +14441,9 @@
          d="m 1233.5467,680.5334 h 0.96"
          style="fill:none;stroke:#000000;stroke-width:0.96;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
          id="path1612" />
-      <text
-         xml:space="preserve"
-         style="font-variant:normal;font-weight:normal;font-size:1.87488px;font-family:Swis721CnBT;-inkscape-font-specification:Swiss721BT-RomanCondensed;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16"
-         id="text2658"
-         x="1226.6666"
-         y="577.01343"><tspan
-           x="1226.6666 1228.1497"
-           y="577.01343"
-           id="tspan2656"
-           style="stroke-width:0.16">W2</tspan></text>
     </g>
     <g
        id="VLSI-238">
-      <text
-         xml:space="preserve"
-         style="font-variant:normal;font-weight:normal;font-size:9.37504px;font-family:Swis721CnBT;-inkscape-font-specification:Swiss721BT-RomanCondensed;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16"
-         id="text3398"
-         x="1255.1466"
-         y="613.65338"
-         transform="translate(4e-7)"><tspan
-           x="1255.1466 1259.8154 1264.4843"
-           y="613.65338"
-           id="tspan3396"
-           style="stroke-width:0.16">238</tspan></text>
       <text
          xml:space="preserve"
          style="font-variant:normal;font-weight:normal;font-size:6.56256px;font-family:Swis721CnBT;-inkscape-font-specification:Swiss721BT-RomanCondensed;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16"
@@ -15767,16 +15600,6 @@
          d="m 1324.4267,685.3334 -2.24,2.24"
          style="fill:none;stroke:#000000;stroke-width:0.96;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
          id="path1984" />
-      <text
-         xml:space="preserve"
-         style="font-variant:normal;font-weight:normal;font-size:1.87488px;font-family:Swis721CnBT;-inkscape-font-specification:Swiss721BT-RomanCondensed;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16"
-         id="text2952"
-         x="1326.6666"
-         y="690.77338"><tspan
-           x="1326.6666 1327.7578"
-           y="690.77338"
-           id="tspan2950"
-           style="stroke-width:0.16">D1</tspan></text>
       <path
          d="m 1387.6267,689.0134 v -11.04"
          style="fill:none;stroke:#000000;stroke-width:0.96;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -16139,17 +15962,6 @@
     </g>
     <g
        id="STAFF_233">
-      <text
-         xml:space="preserve"
-         style="font-variant:normal;font-weight:normal;font-size:9.37504px;font-family:Swis721CnBT;-inkscape-font-specification:Swiss721BT-RomanCondensed;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16"
-         id="text3394"
-         x="1261.0667"
-         y="660.37341"
-         transform="translate(4e-7)"><tspan
-           x="1261.0667 1265.7355 1270.4043"
-           y="660.37341"
-           id="tspan3392"
-           style="stroke-width:0.16">233</tspan></text>
       <text
          xml:space="preserve"
          style="font-variant:normal;font-weight:normal;font-size:9.37504px;font-family:Swis721CnBT;-inkscape-font-specification:Swiss721BT-RomanCondensed;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.16"
@@ -18426,7 +18238,7 @@
      y="721.90625"
      ry="5.6640602e-06" />
   <rect
-     style="fill:#000000;stroke:none"
+     style="fill:#1a1a1a;stroke:none"
      id="rect39010"
      width="0.82812643"
      height="0.70312577"
@@ -18481,4 +18293,8 @@
      x="1342.9375"
      y="719.3125"
      ry="5.6640602e-06" />
+  <path
+     style="fill:#000000"
+     d="m 1331.9375,692.375 19.25,19.3125 -3.75,2.0625 -18.1875,-18.625 z"
+     id="path1" />
 </svg>
