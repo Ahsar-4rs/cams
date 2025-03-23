@@ -16,7 +16,7 @@ const OpenStreetMapOverlay = () => {
   ];
 
   const overlayImageUrl =
-    "https://raw.githubusercontent.com/Ahsar-4rs/cams/main/map%20API/svg%20files/MAIN%20BLOCK%20GF_coloured-full.svg";
+    "https://raw.githubusercontent.com/Ahsar-4rs/cams/main/map%20API/svg%20files/MAIN%20BLOCK%20GF_coloured-full.svg?raw=true";
 
   return (
     <MapContainer
