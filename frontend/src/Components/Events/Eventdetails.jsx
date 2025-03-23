@@ -1,4 +1,5 @@
 import Pictures from '../../assets/events/pictures.jsx';
+import React, { useState } from 'react';
 
 export const Events = [
         {
