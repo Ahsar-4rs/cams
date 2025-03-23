@@ -5,34 +5,8 @@
    height="900.71149"
    viewBox="0 0 500.88068 900.71149"
    id="svg13547"
-   sodipodi:docname="MAIN BLOCK GF_coloured-full.svg"
-   inkscape:export-filename="MAIN BLOCK GF_coloured-full.svg"
-   inkscape:export-xdpi="96"
-   inkscape:export-ydpi="96"
-   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
-     id="namedview1"
-     pagecolor="#ffffff"
-     bordercolor="#000000"
-     borderopacity="0.25"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     showgrid="false"
-     inkscape:zoom="0.2731059"
-     inkscape:cx="629.79234"
-     inkscape:cy="631.62313"
-     inkscape:window-width="1920"
-     inkscape:window-height="974"
-     inkscape:window-x="-11"
-     inkscape:window-y="-11"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg13547" />
   <defs
      id="defs5">
     <clipPath
@@ -45,7 +19,7 @@
   </defs>
   <g
      id="g6"
-     transform="matrix(-0.29447815,0.89952887,-0.92460347,-0.27212233,829.31939,10.60711)">
+     transform="matrix(0.29447815,-0.89952887,0.92460347,0.27212233,-308.44315,890.10173)">
     <g
        id="layer3">
       <rect
