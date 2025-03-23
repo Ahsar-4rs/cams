@@ -5,11 +5,8 @@ import reviewImage from "./review.avif";
 import locationImage from "./geolocation.jpg";
 import peerImage from "./psg.png";
 import { useSession } from '../../context/SessionContext';
-<<<<<<< HEAD
-import { Link } from "react-router-dom";
-=======
+
 import { useNavigate } from 'react-router-dom';
->>>>>>> 3a107c85cbc0277c0b587d5146b649273c7f7b46
 
 function Health() {
   const navigate = useNavigate(); 
