@@ -4,6 +4,7 @@ import reviewImage from "./review.avif";
 import locationImage from "./geolocation.jpg";
 import peerImage from "./psg.png";
 import { useSession } from '../../context/SessionContext';
+import { Link } from "react-router-dom";
 
 function Health() {
   const { getCurrentAccessRights } = useSession();
@@ -25,7 +26,7 @@ function Health() {
                 />
                 {!hasReviewPrivilege && <div className="tooltip">Reserved for authorized users only</div>}
             </div>
-            <img src={locationImage} alt="View Locations" className="health-image" />
+            <Link to="/map"><img src={locationImage} alt="View Locations" className="health-image" /></Link>
             <img src={peerImage} alt="Peer Support Groups" className="health-image" />
         </div>
       </div>

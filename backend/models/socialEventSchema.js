@@ -27,7 +27,7 @@ const socialEventSchema=new mongoose.Schema({
             message: "Enter time in [HH:MM:SS] format!!"
         }
     },
-    eventVenu:{
+    eventVenue:{
         type: String,
         required: true,
         default:"Auditorium",
