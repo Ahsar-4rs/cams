@@ -1,3 +1,35 @@
 .Maps{
     padding: 100px;
 }
+
+.Maps .MenuBar{
+    background-color: #c59a59;
+    width: 36%;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+.Maps .MenuBar ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.Maps .MenuBar ul li{
+    padding:22.75px;
+    color: black;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.Maps .MenuBar ul li:hover{
+    
+    color: rgb(249, 248, 248);
+    background-color: rgb(28, 28, 28);
+    cursor: pointer;
+}
+
+.Maps .MenuBar ul li.active {
+    color: white;
+    background-color: black;
+}
