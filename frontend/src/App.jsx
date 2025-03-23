@@ -1,12 +1,13 @@
 import Header from './Components/Header/Header.jsx'
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Homepage from './Home/Homepage.jsx';
+import Homepage from './pages/Home/Homepage.jsx';
 import Footer from './Components/Footer/Footer.jsx';
 import PrivacyPolicyPage from './pages/Privacy-policy/PrivacyPolicy.jsx';
 import About from './Components/About/About.jsx';
 import EventPage from './pages/Events-Page/EventsPage.jsx'
 import Contact from './Components/Contact/Contact.jsx';
+import Account from './Components/Account/Account.jsx';
 import Health from './pages/Health/Health.jsx';
 import { SessionProvider } from './context/SessionContext.jsx';
 import LoginRegister from './Components/LoginRegister/LoginRegister.jsx';
@@ -18,16 +19,18 @@ import EventManagement from './pages/EventManagement/EventManagement.jsx';
 import AddEvent from './pages/EventManagement/AddEvent.jsx';
 import EditEvent from './pages/EventManagement/EditEvent.jsx';
 import DeleteEvent from './pages/EventManagement/DeleteEvent.jsx';
+import PeerSupport from './pages/Health/PeerSupport.jsx'; 
+import ChatPage from './pages/Health/ChatPage.jsx';  
 
 function App() {
   return (
     <div className="App">
       <SessionProvider>
-       <BrowserRouter>
-       <Header/>
-        <Routes>
+        <BrowserRouter>
+          <Header />
+          <Routes>
             //Public Routes
-            <Route exact path="/" element={<LoginRegister/>} />
+            <Route exact path="/" element={<LoginRegister />} />
             <Route exact path="/Home" element={<Homepage />} />
             <Route exact path="/Privacy" element={<PrivacyPolicyPage/>}/>
             <Route exact path="/About" element={<About />}/>
@@ -35,10 +38,21 @@ function App() {
             <Route exact path="/Contact" element={<Contact />}/>
             <Route exact path="/EventPage" element={<EventPage />}></Route>
             <Route exact path="/Contact" element={<Contact />}/>
+
+
             //Protected Routes
             <Route exact path="/Health" element={
-                <ProtectedRoute requiredAccess="canAccessHealth"><Health /></ProtectedRoute>
-              }
+              <ProtectedRoute requiredAccess="canAccessHealth"><Health /></ProtectedRoute>
+            }
+            />
+
+            <Route exact path="/Peersupport" element={ 
+              <ProtectedRoute requiredAccess="canAccessHealth"><PeerSupport /></ProtectedRoute>
+            } 
+            />
+            <Route path="/chat/:disease" element={
+              <ProtectedRoute requiredAccess="canAccessHealth"><ChatPage/>
+              </ProtectedRoute>} 
             />
             <Route exact path="/Health-Location" element={
               <ProtectedRoute requiredAccess="canAccessHealth"><Health_Location /></ProtectedRoute>
@@ -68,9 +82,11 @@ function App() {
               <ProtectedRoute requiredAccess="canManageEvents"><DeleteEvent /></ProtectedRoute>
               }
             />
-        </Routes>
-        <Footer/>
-       </BrowserRouter>
+
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+
       </SessionProvider>
     </div>
   );

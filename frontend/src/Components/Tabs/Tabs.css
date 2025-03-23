@@ -31,6 +31,9 @@
     position: relative;
     overflow: hidden;
     aspect-ratio: 1;
+    min-width: 130px; /* Set a reasonable minimum width */
+    min-height: 100px; /* Set a reasonable minimum height */
+    aspect-ratio: 1;
 }
 
 .category::before {

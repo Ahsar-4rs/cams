@@ -1,8 +1,8 @@
 import React from 'react';
-import './Header.css'
-import logo from '../../assets/logo/logo-2.png'
+import './Header.css';
+import logo from '../../assets/logo/logo-2.png';
 import { Link, useNavigate } from 'react-router-dom';
-import { useSession } from '../../context/SessionContext'
+import { useSession } from '../../context/SessionContext';
 
 function Header() {
     const { isGuest, loginAs } = useSession();
@@ -37,7 +37,7 @@ function Header() {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
-export default Header
+export default Header;
