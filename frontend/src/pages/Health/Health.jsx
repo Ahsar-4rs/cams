@@ -6,8 +6,6 @@ import locationImage from "./geolocation.jpg";
 import peerImage from "./psg.png";
 import { useSession } from '../../context/SessionContext';
 
-import { useNavigate } from 'react-router-dom';
-
 function Health() {
   const navigate = useNavigate(); 
   const { getCurrentAccessRights } = useSession();

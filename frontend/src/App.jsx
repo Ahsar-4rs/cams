@@ -21,6 +21,9 @@ import EditEvent from './pages/EventManagement/EditEvent.jsx';
 import DeleteEvent from './pages/EventManagement/DeleteEvent.jsx';
 import PeerSupport from './pages/Health/PeerSupport.jsx'; 
 import ChatPage from './pages/Health/ChatPage.jsx';  
+import Map from './pages/Map/Maps.jsx'
+
+
 
 function App() {
   return (
@@ -38,7 +41,7 @@ function App() {
             <Route exact path="/Contact" element={<Contact />}/>
             <Route exact path="/EventPage" element={<EventPage />}></Route>
             <Route exact path="/Contact" element={<Contact />}/>
-
+            <Route exact path="/locations" element={<Map />}/>
 
             //Protected Routes
             <Route exact path="/Health" element={
