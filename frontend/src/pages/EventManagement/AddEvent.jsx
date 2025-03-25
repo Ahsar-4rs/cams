@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import "./AddEvent.css";
-
+import { toast } from 'react-toastify';
+import axios from "axios"
+import 'react-toastify/dist/ReactToastify.css';
 const AddEvent = () => {
     const [eventDetails, setEventDetails] = useState({
         Name: '',
@@ -11,52 +13,60 @@ const AddEvent = () => {
         Organizer: '',
         Body: '',
         Category: '',
-        Geolocation: { lat: '', lng: '' }
+        
     });
 
     const [message, setMessage] = useState('');
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-
-        // Check if the input is for latitude or longitude
-        if (name === "Geolocation.lat" || name === "Geolocation.lng") {
-            setEventDetails({
-                ...eventDetails,
-                Geolocation: {
-                    ...eventDetails.Geolocation,
-                    [name.split('.')[1]]: value // Update the specific latitude or longitude
-                }
-            });
-        } else {
-            setEventDetails({ ...eventDetails, [name]: value });
-        }
-    };
-
-    const handleSubmit = (e) => {
+    const handleChange=(e)=>{
+        setEventDetails({...eventDetails,[e.target.name]:e.target.value});
+    }
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const { Name, Date, Time, Venue, Organizer, Body, Category } = eventDetails;
-
-        // Check for required fields
+    
+        const { Name, Date, Time, Venue, Image, Organizer, Body, Category } = eventDetails;
+    
         if (!Name || !Date || !Time || !Venue || !Organizer || !Body || !Category) {
-            setMessage('Please fill in all required fields.');
+            toast.error('Please fill in all required fields.');
             return;
         }
-
-        // Reset the form fields
-        setEventDetails({
-            Name: '',
-            Date: '',
-            Time: '',
-            Venue: '',
-            Image: null,
-            Organizer: '',
-            Body: '',
-            Category: '',
-            Geolocation: { lat: '', lng: '' }
-        });
-
-        setMessage('Event added successfully!');
+    
+        try {
+            const formData = new FormData();
+            formData.append("eventName", Name);
+            formData.append("eventDate", Date);
+            formData.append("eventTime", Time);
+            formData.append("eventVenue", Venue);
+            formData.append("organizer", Organizer);
+            formData.append("eventInfo", Body);
+            formData.append("Category", Category);
+            if (Image) formData.append("eventImage", Image);
+    
+            const response = await axios.post(
+                "http://localhost:4000/api/v1/socialEvent/postEvent",
+                formData,
+                {
+                    withCredentials: true,
+                    headers: { "Content-Type": "multipart/form-data" }, // Required for file uploads
+                }
+            );
+    
+            toast.success(response.data.message);
+            setEventDetails({
+                Name: '',
+                Date: '',
+                Time: '',
+                Venue: '',
+                Image: null,
+                Organizer: '',
+                Body: '',
+                Category: '',
+            });
+    
+        } catch (error) {
+            toast.error(error.response?.data?.message || "Something went wrong!");
+            console.error("Submission error:", error);
+        }
     };
 
     return (
@@ -96,8 +106,6 @@ const AddEvent = () => {
                     <option value="Social Event">Social Event</option>
                 </select>
 
-                <input type="text" name="Geolocation.lat" placeholder="Latitude" value={eventDetails.Geolocation.lat} onChange={handleChange} />
-                <input type="text" name="Geolocation.lng" placeholder="Longitude" value={eventDetails.Geolocation.lng} onChange={handleChange} />
                 <button type="submit">Add Event</button>
             </form>
             {message && <p>{message}</p>}
