@@ -298,6 +298,26 @@ const Reports = () => {
                                     <option value="Working Woman's">Working Woman's</option>
                                 </>
                             )}
+                            {formData.gender === 'male' && (formData.semester === '1' || formData.semester === '2') && (
+                                <>
+                                    <option value="Trust">Trust</option>
+                                    <option value="INH">INH</option>
+                                </>
+                            )}
+                            {formData.gender === 'male' && (formData.semester === '3' || formData.semester === '4') && (
+                                <>
+                                    <option value="Golden Jubilee">Golden Jubilee</option>
+                                    <option value="INH">INH</option>
+                                    <option value="Annexe">Annexe</option>
+                                </>
+                            )}
+                            {formData.gender === 'male' && (formData.semester === '5' || formData.semester === '6' || formData.semester === '7' || formData.semester === '8') && (
+                                <>
+                                    <option value="Golden Jubilee">Golden Jubilee</option>
+                                    <option value="INH">INH</option>
+                                    <option value="Soumya">Soumya</option>
+                                </>
+                            )}
                         </select>
                     </label>
                 )}
@@ -347,7 +367,7 @@ const Reports = () => {
                     <textarea name="allergies" value={formData.allergies} onChange={handleChange} />
                 </label>
 
-                <button type="submit" disabled={!validatePhoneNumber(formData.phone)}>Submit Report</button>
+                <button type="submit" disabled={!validatePhoneNumber(formData.phone)}>Review and Submit</button>
             </form>
         </div>
     );
