@@ -21,15 +21,21 @@ import EditEvent from './pages/EventManagement/EditEvent.jsx';
 import DeleteEvent from './pages/EventManagement/DeleteEvent.jsx';
 import PeerSupport from './pages/Health/PeerSupport.jsx'; 
 import ChatPage from './pages/Health/ChatPage.jsx';  
-import Maps from './pages/Map/Maps.jsx';
-
-
+import Maps from './pages/Map/Maps.jsx'
+import { useEffect } from 'react';
+import ScrollToTop from './Components/ScrollToTop.jsx';
+import Reports from './pages/Reports/Reports.jsx';
 
 function App() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  },);
+
   return (
     <div className="App">
       <SessionProvider>
         <BrowserRouter>
+          <ScrollToTop />
           <Header />
           <Routes>
             //Public Routes
@@ -44,6 +50,10 @@ function App() {
             <Route exact path="/Account" element={<Account />}/>
 
             //Protected Routes
+            <Route exact path="/Account" element={
+              <ProtectedRoute requiredAccess="canAccessAccount"><Account /></ProtectedRoute>
+            } 
+            />
             <Route exact path="/Health" element={
               <ProtectedRoute requiredAccess="canAccessHealth"><Health /></ProtectedRoute>
             }
@@ -55,7 +65,6 @@ function App() {
             />
             <Route path="/chat/:disease" element={
               <ProtectedRoute requiredAccess="canAccessHealth"><ChatPage/>
-              </ProtectedRoute>}
             />
             <Route exact path="/locations" element={
               <ProtectedRoute requiredAccess="canAccessHealth"><Maps /></ProtectedRoute>
@@ -63,27 +72,31 @@ function App() {
             />
             <Route exact path="/Infra" element={
               <ProtectedRoute requiredAccess="canAccessInfra"><Infra_Location /></ProtectedRoute>
-              }
+            }
             />
             <Route exact path="/Emergency" element={
               <ProtectedRoute requiredAccess="canAccessEmergency"><Emergency /></ProtectedRoute>
-              }
+            }
             />
             <Route exact path="/EventManagement" element={
               <ProtectedRoute requiredAccess="canManageEvents"><EventManagement /></ProtectedRoute>
-              }
+            }
             />
             <Route exact path="/AddEvent" element={
               <ProtectedRoute requiredAccess="canManageEvents"><AddEvent /></ProtectedRoute>
-              }
+            }
             />
             <Route exact path="/EditEvent" element={
               <ProtectedRoute requiredAccess="canManageEvents"><EditEvent /></ProtectedRoute>
-              }
+            }
             />
             <Route exact path="/DeleteEvent" element={
               <ProtectedRoute requiredAccess="canManageEvents"><DeleteEvent /></ProtectedRoute>
-              }
+            }
+            />
+            <Route exact path="/Reports" element={
+              <ProtectedRoute requiredAccess="canAccessReports"><Reports /></ProtectedRoute>
+            }
             />
              
 
