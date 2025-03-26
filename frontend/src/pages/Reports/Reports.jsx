@@ -13,13 +13,13 @@ const Reports = () => {
         department: '',
         semester: '',
         class: '',
-        symptoms: '',
+        diagnosis: '',
         onset: '',
-        patientHistory: '',
         medicineIntake: '',
         socialGatherings: '',
         foodIntake: '',
-        allergies: ''
+        allergies: '',
+        level: ''
     });
 
     const [errors, setErrors] = useState({});
@@ -34,7 +34,7 @@ const Reports = () => {
         department: useRef(null),
         semester: useRef(null),
         class: useRef(null),
-        symptoms: useRef(null),
+        diagnosis: useRef(null),
         onset: useRef(null),
         medicineIntake: useRef(null),
         socialGatherings: useRef(null),
@@ -49,6 +49,20 @@ const Reports = () => {
             [name]: value
         });
         setErrors({ ...errors, [name]: '' }); // Clear error on change
+
+        // Set level based on diagnosis
+        if (name === 'diagnosis') {
+            if (['food poisoning', 'gastroenteritis', 'otitis media', 'otitis externa', 'mumps', 'bronchitis', 'covid 19'].includes(value)) {
+                setFormData(prevData => ({ ...prevData, level: 2 }));
+                console.log('Level set to:', 2);
+            } else if (['hepatitis', 'gbs', 'influenza', 'pneumonia', 'tuberculosis'].includes(value)) {
+                setFormData(prevData => ({ ...prevData, level: 3 }));
+                console.log('Level set to:', 3);
+            } else {
+                setFormData(prevData => ({ ...prevData, level: 1 }));
+                console.log('Level set to:', 1);
+            }
+        }
     };
 
     const handleSubmit = (e) => {
@@ -58,7 +72,7 @@ const Reports = () => {
 
         // Validate required fields
         for (const key in formData) {
-            if (!formData[key] && key !== 'patientHistory' && key !== 'medicineIntake' && key !== 'socialGatherings' && key !== 'foodIntake' && key !== 'allergies') {
+            if (!formData[key] && key !== 'medicineIntake' && key !== 'socialGatherings' && key !== 'foodIntake' && key !== 'allergies') {
                 newErrors[key] = 'This field is required';
                 hasError = true;
             }
@@ -81,29 +95,23 @@ const Reports = () => {
         return phoneRegex.test(phone);
     };
 
-    /*const validateSemester = (semester) => {
-        const semesterNum = parseInt(semester, 10);
-        return semesterNum >= 1 && semesterNum <= 10;
-    };
-    */
-
     return (
         <div className="reports-container">
             <h1>Medical Report Form</h1>
             <form onSubmit={handleSubmit}>
                 <h2>Biodata</h2>
                 <label>
-                    Name:
+                    Name
                     <input type="text" name="name" value={formData.name} onChange={handleChange} ref={inputRefs.name} required />
                     {errors.name && <span className="error-message">{errors.name}</span>}
                 </label>
                 <label>
-                    Age:
-                    <input type="number" name="age" value={formData.age} onChange={handleChange} ref={inputRefs.age} required />
+                    Age
+                    <input type="number" name="age" value={formData.age} onChange={handleChange} ref={inputRefs.age} required  min="10" max="100"/>
                     {errors.age && <span className="error-message">{errors.age}</span>}
                 </label>
                 <label>
-                    Gender:
+                    Gender
                     <select name="gender" value={formData.gender} onChange={handleChange} ref={inputRefs.gender} required>
                         <option value="">Select</option>
                         <option value="male">Male</option>
@@ -112,7 +120,7 @@ const Reports = () => {
                     {errors.gender && <span className="error-message">{errors.gender}</span>}
                 </label>
                 <label>
-                    Phone No:
+                    Phone Number
                     <input 
                         type="tel" 
                         name="phone" 
@@ -126,7 +134,7 @@ const Reports = () => {
                     {errors.phone && <span className="error-message">{errors.phone}</span>}
                 </label>
                 <label>
-                    Department:
+                    Department
                     <select name="department" value={formData.department} onChange={handleChange} ref={inputRefs.department} required>
                         <option value="">Select</option>
                         <option value="A">Architecture</option>
@@ -145,7 +153,7 @@ const Reports = () => {
                 
                 {formData.department === 'A' ? (
                     <label>
-                        Semester:
+                        Semester
                         <select name="semester" value={formData.semester} onChange={handleChange} ref={inputRefs.semester} required>
                             <option value="">Select</option>
                             <option value="1">1</option>
@@ -163,7 +171,7 @@ const Reports = () => {
                     </label>
                 ) : (
                     <label>
-                        Semester:
+                        Semester
                         <select name="semester" value={formData.semester} onChange={handleChange} ref={inputRefs.semester} required>
                             <option value="">Select</option>
                             <option value="1">1</option>
@@ -180,78 +188,15 @@ const Reports = () => {
                 )}
                 
                 <label>
-                    Class:
+                    Class
                     <select name="class" value={formData.class} onChange={handleChange} ref={inputRefs.class} required>
                         <option value="">Select</option>
-                        {formData.semester === '1' && (
+                        {formData.department && (formData.semester === '1' || formData.semester === '2' || formData.semester === '3' || formData.semester === '4' || formData.semester === '5' || formData.semester === '6' || formData.semester === '7' || formData.semester === '8') && (
                             <>
-                                <option value={`${formData.department}1A`}>{`${formData.department}1A`}</option>
-                                <option value={`${formData.department}1B`}>{`${formData.department}1B`}</option>
+                                <option value={`${formData.department}${formData.semester}A`}>{`${formData.department}${formData.semester}A`}</option>
+                                <option value={`${formData.department}${formData.semester}B`}>{`${formData.department}${formData.semester}B`}</option>
                                 {formData.department === 'M' || formData.department === 'T' ? (
-                                    <option value={`${formData.department}1C`}>{`${formData.department}1C`}</option>
-                                ) : null}
-                            </>
-                        )}
-                        {formData.semester === '2' && (
-                            <>
-                                <option value={`${formData.department}2A`}>{`${formData.department}2A`}</option>
-                                <option value={`${formData.department}2B`}>{`${formData.department}2B`}</option>
-                                {formData.department === 'M' || formData.department === 'T' ? (
-                                    <option value={`${formData.department}2C`}>{`${formData.department}2C`}</option>
-                                ) : null}
-                            </>
-                        )}
-                        {formData.semester === '3' && (
-                            <>
-                                <option value={`${formData.department}3A`}>{`${formData.department}3A`}</option>
-                                <option value={`${formData.department}3B`}>{`${formData.department}3B`}</option>
-                                {formData.department === 'M' || formData.department === 'T' ? (
-                                    <option value={`${formData.department}3C`}>{`${formData.department}3C`}</option>
-                                ) : null}
-                            </>
-                        )}
-                        {formData.semester === '4' && (
-                            <>
-                                <option value={`${formData.department}4A`}>{`${formData.department}4A`}</option>
-                                <option value={`${formData.department}4B`}>{`${formData.department}4B`}</option>
-                                {formData.department === 'M' || formData.department === 'T' ? (
-                                    <option value={`${formData.department}4C`}>{`${formData.department}4C`}</option>
-                                ) : null}
-                            </>
-                        )}
-                        {formData.semester === '5' && (
-                            <>
-                                <option value={`${formData.department}5A`}>{`${formData.department}5A`}</option>
-                                <option value={`${formData.department}5B`}>{`${formData.department}5B`}</option>
-                                {formData.department === 'M' || formData.department === 'T' ? (
-                                    <option value={`${formData.department}5C`}>{`${formData.department}5C`}</option>
-                                ) : null}
-                            </>
-                        )}
-                        {formData.semester === '6' && (
-                            <>
-                                <option value={`${formData.department}6A`}>{`${formData.department}6A`}</option>
-                                <option value={`${formData.department}6B`}>{`${formData.department}6B`}</option>
-                                {formData.department === 'M' || formData.department === 'T' ? (
-                                    <option value={`${formData.department}6C`}>{`${formData.department}6C`}</option>
-                                ) : null}
-                            </>
-                        )}
-                        {formData.semester === '7' && (
-                            <>
-                                <option value={`${formData.department}7A`}>{`${formData.department}7A`}</option>
-                                <option value={`${formData.department}7B`}>{`${formData.department}7B`}</option>
-                                {formData.department === 'M' || formData.department === 'T' ? (
-                                    <option value={`${formData.department}7C`}>{`${formData.department}7C`}</option>
-                                ) : null}
-                            </>
-                        )}
-                        {formData.semester === '8' && (
-                            <>
-                                <option value={`${formData.department}8A`}>{`${formData.department}8A`}</option>
-                                <option value={`${formData.department}8B`}>{`${formData.department}8B`}</option>
-                                {formData.department === 'M' || formData.department === 'T' ? (
-                                    <option value={`${formData.department}8C`}>{`${formData.department}8C`}</option>
+                                    <option value={`${formData.department}${formData.semester}C`}>{`${formData.department}${formData.semester}C`}</option>
                                 ) : null}
                             </>
                         )}
@@ -273,7 +218,7 @@ const Reports = () => {
                 <br />
 
                 <label>
-                    Accommodation:
+                    Accommodation
                     <select name="accommodation" value={formData.accommodation} onChange={handleChange} required>
                         <option value="">Select</option>
                         <option value="day scholar">Day Scholar</option>
@@ -282,7 +227,7 @@ const Reports = () => {
                 </label>
                 {formData.accommodation === 'hostler' && (
                     <label>
-                        Hostel:
+                        Hostel
                         <select name="hostel" value={formData.hostel} onChange={handleChange} required>
                             <option value="">Select</option>
                             {formData.gender === 'female' && (formData.semester === '2' || formData.semester === '1') && (
@@ -325,7 +270,7 @@ const Reports = () => {
                 {formData.accommodation === 'hostler' && (
                     <>
                         <label>
-                            Room Number:
+                            Room Number
                             <input 
                                 type="text" 
                                 name="roomNumber" 
@@ -339,31 +284,50 @@ const Reports = () => {
 
                 <br />
 
-                <h2>Complaints</h2>
+                <h2>Disease Information</h2>
                 <label>
-                    Symptoms:
-                    <textarea name="symptoms" value={formData.symptoms} onChange={handleChange} required />
+                    Diagnosis
+                    <select name="diagnosis" value={formData.diagnosis} onChange={handleChange} ref={inputRefs.diagnosis} required>
+                        <option value="">Select</option>
+                        <option value="common cold">Common Cold</option>
+                        <option value="covid 19">Covid 19</option>
+                        <option value="diarrhea">Diarrhea</option>
+                        <option value="food poisoning">Food Poisoning</option>
+                        <option value="gastroenteritis">Gastroenteritis</option>
+                        <option value="gbs">Gullain Barre Syndrome</option>
+                        <option value="hepatitis">Hepatitis</option>
+                        <option value="influenza">Influenza</option>
+                        <option value="mumps">Mumps</option>
+                        <option value="otitis externa">Otitis Externa</option>
+                        <option value="otitis media">Otitis Media</option>
+                        <option value="pneumonia">Pneumonia</option>
+                        <option value="throat infection">Throat infection</option>
+                        <option value="tonsillitis">Tonsillitis</option>
+                        <option value="tuberculosis">Tuberculosis</option>
+                        <option value="bronchitis">Viral Bronchitis</option>
+                    </select>
                 </label>
+                
                 <label>
-                    Onset:
+                    Onset
                     <input type="text" name="onset" value={formData.onset} onChange={handleChange} required />
                 </label>
 
                 <h2>Patient History [Optional]</h2>
                 <label>
-                    History of Medicine Intake:
+                    History of Medicine Intake
                     <textarea name="medicineIntake" value={formData.medicineIntake} onChange={handleChange} />
                 </label>
                 <label>
-                    Recent Social Gatherings:
+                    Recent Social Gatherings
                     <textarea name="socialGatherings" value={formData.socialGatherings} onChange={handleChange} />
                 </label>
                 <label>
-                    Recent Food Intake:
+                    Recent Food Intake
                     <textarea name="foodIntake" value={formData.foodIntake} onChange={handleChange} />
                 </label>
                 <label>
-                    Known Allergies:
+                    Known Allergies
                     <textarea name="allergies" value={formData.allergies} onChange={handleChange} />
                 </label>
 
