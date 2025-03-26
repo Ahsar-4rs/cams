@@ -21,7 +21,7 @@ import EditEvent from './pages/EventManagement/EditEvent.jsx';
 import DeleteEvent from './pages/EventManagement/DeleteEvent.jsx';
 import PeerSupport from './pages/Health/PeerSupport.jsx'; 
 import ChatPage from './pages/Health/ChatPage.jsx';  
-import Map from './pages/Map/Maps.jsx'
+import Maps from './pages/Map/Maps.jsx'
 import { useEffect } from 'react';
 import ScrollToTop from './Components/ScrollToTop.jsx';
 import Reports from './pages/Reports/Reports.jsx';
@@ -47,7 +47,7 @@ function App() {
             <Route exact path="/Contact" element={<Contact />}/>
             <Route exact path="/EventPage" element={<EventPage />}></Route>
             <Route exact path="/Contact" element={<Contact />}/>
-            <Route exact path="/locations" element={<Map />}/>
+            <Route exact path="/Account" element={<Account />}/>
 
             //Protected Routes
             <Route exact path="/Account" element={
@@ -61,16 +61,14 @@ function App() {
 
             <Route exact path="/Peersupport" element={ 
               <ProtectedRoute requiredAccess="canAccessHealth"><PeerSupport /></ProtectedRoute>
-            } 
+            }
             />
             <Route path="/chat/:disease" element={
               <ProtectedRoute requiredAccess="canAccessHealth"><ChatPage/>
-              </ProtectedRoute>
-            } 
             />
-            <Route exact path="/Health-Location" element={
-              <ProtectedRoute requiredAccess="canAccessHealth"><Health_Location /></ProtectedRoute>
-            }
+            <Route exact path="/locations" element={
+              <ProtectedRoute requiredAccess="canAccessHealth"><Maps /></ProtectedRoute>
+              }
             />
             <Route exact path="/Infra" element={
               <ProtectedRoute requiredAccess="canAccessInfra"><Infra_Location /></ProtectedRoute>
@@ -100,6 +98,7 @@ function App() {
               <ProtectedRoute requiredAccess="canAccessReports"><Reports /></ProtectedRoute>
             }
             />
+             
 
           </Routes>
           <Footer />
