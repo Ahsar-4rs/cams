@@ -7,6 +7,7 @@ import { dbConnection } from "./database/dbConnection.js";
 import socialEventRouter from "./router/socialEventRouter.js"
 import {errorMiddleware} from './middlewares/errorMiddleware.js'
 import userRouter from './router/userRouter.js'
+import healthAlertRouter from './router/healthAlertRouter.js'
 const app= express();
 config({path:"./config/config.env"});
 
@@ -31,6 +32,7 @@ app.use(
 
 app.use("/api/v1/socialEvent",socialEventRouter);
 app.use("/api/v1/user",userRouter);
+app.use("/api/v1/report",healthAlertRouter)
 
 dbConnection()
 app.use(errorMiddleware);
