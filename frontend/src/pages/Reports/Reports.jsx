@@ -13,6 +13,7 @@ const Reports = () => {
         department: '',
         semester: '',
         class: '',
+<<<<<<< HEAD
         symptoms: '',
         onset: '',
         patientHistory: '',
@@ -20,6 +21,15 @@ const Reports = () => {
         socialGatherings: '',
         foodIntake: '',
         allergies: ''
+=======
+        diagnosis: '',
+        onset: '',
+        medicineIntake: '',
+        socialGatherings: '',
+        foodIntake: '',
+        allergies: '',
+        level: ''
+>>>>>>> 5953dd761cd696778930a264056086b9c71cf638
     });
 
     const [errors, setErrors] = useState({});
@@ -34,7 +44,11 @@ const Reports = () => {
         department: useRef(null),
         semester: useRef(null),
         class: useRef(null),
+<<<<<<< HEAD
         symptoms: useRef(null),
+=======
+        diagnosis: useRef(null),
+>>>>>>> 5953dd761cd696778930a264056086b9c71cf638
         onset: useRef(null),
         medicineIntake: useRef(null),
         socialGatherings: useRef(null),
@@ -49,6 +63,23 @@ const Reports = () => {
             [name]: value
         });
         setErrors({ ...errors, [name]: '' }); // Clear error on change
+<<<<<<< HEAD
+=======
+
+        // Set level based on diagnosis
+        if (name === 'diagnosis') {
+            if (['food poisoning', 'gastroenteritis', 'otitis media', 'otitis externa', 'mumps', 'bronchitis', 'covid 19'].includes(value)) {
+                setFormData(prevData => ({ ...prevData, level: 2 }));
+                console.log('Level set to:', 2);
+            } else if (['hepatitis', 'gbs', 'influenza', 'pneumonia', 'tuberculosis'].includes(value)) {
+                setFormData(prevData => ({ ...prevData, level: 3 }));
+                console.log('Level set to:', 3);
+            } else {
+                setFormData(prevData => ({ ...prevData, level: 1 }));
+                console.log('Level set to:', 1);
+            }
+        }
+>>>>>>> 5953dd761cd696778930a264056086b9c71cf638
     };
 
     const handleSubmit = (e) => {
@@ -58,7 +89,11 @@ const Reports = () => {
 
         // Validate required fields
         for (const key in formData) {
+<<<<<<< HEAD
             if (!formData[key] && key !== 'patientHistory' && key !== 'medicineIntake' && key !== 'socialGatherings' && key !== 'foodIntake' && key !== 'allergies') {
+=======
+            if (!formData[key] && key !== 'medicineIntake' && key !== 'socialGatherings' && key !== 'foodIntake' && key !== 'allergies') {
+>>>>>>> 5953dd761cd696778930a264056086b9c71cf638
                 newErrors[key] = 'This field is required';
                 hasError = true;
             }
@@ -81,12 +116,15 @@ const Reports = () => {
         return phoneRegex.test(phone);
     };
 
+<<<<<<< HEAD
     /*const validateSemester = (semester) => {
         const semesterNum = parseInt(semester, 10);
         return semesterNum >= 1 && semesterNum <= 10;
     };
     */
 
+=======
+>>>>>>> 5953dd761cd696778930a264056086b9c71cf638
     return (
         <div className="reports-container">
             <h1>Medical Report Form</h1>
@@ -99,7 +137,11 @@ const Reports = () => {
                 </label>
                 <label>
                     Age
+<<<<<<< HEAD
                     <input type="number" name="age" value={formData.age} onChange={handleChange} ref={inputRefs.age} required />
+=======
+                    <input type="number" name="age" value={formData.age} onChange={handleChange} ref={inputRefs.age} required  min="10" max="100"/>
+>>>>>>> 5953dd761cd696778930a264056086b9c71cf638
                     {errors.age && <span className="error-message">{errors.age}</span>}
                 </label>
                 <label>
@@ -183,6 +225,7 @@ const Reports = () => {
                     Class
                     <select name="class" value={formData.class} onChange={handleChange} ref={inputRefs.class} required>
                         <option value="">Select</option>
+<<<<<<< HEAD
                         {formData.semester === '1' && (
                             <>
                                 <option value={`${formData.department}1A`}>{`${formData.department}1A`}</option>
@@ -252,6 +295,14 @@ const Reports = () => {
                                 <option value={`${formData.department}8B`}>{`${formData.department}8B`}</option>
                                 {formData.department === 'M' || formData.department === 'T' ? (
                                     <option value={`${formData.department}8C`}>{`${formData.department}8C`}</option>
+=======
+                        {formData.department && (formData.semester === '1' || formData.semester === '2' || formData.semester === '3' || formData.semester === '4' || formData.semester === '5' || formData.semester === '6' || formData.semester === '7' || formData.semester === '8') && (
+                            <>
+                                <option value={`${formData.department}${formData.semester}A`}>{`${formData.department}${formData.semester}A`}</option>
+                                <option value={`${formData.department}${formData.semester}B`}>{`${formData.department}${formData.semester}B`}</option>
+                                {formData.department === 'M' || formData.department === 'T' ? (
+                                    <option value={`${formData.department}${formData.semester}C`}>{`${formData.department}${formData.semester}C`}</option>
+>>>>>>> 5953dd761cd696778930a264056086b9c71cf638
                                 ) : null}
                             </>
                         )}
@@ -342,8 +393,32 @@ const Reports = () => {
                 <h2>Disease Information</h2>
                 <label>
                     Diagnosis
+<<<<<<< HEAD
                     <textarea name="symptoms" value={formData.symptoms} onChange={handleChange} required />
                 </label>
+=======
+                    <select name="diagnosis" value={formData.diagnosis} onChange={handleChange} ref={inputRefs.diagnosis} required>
+                        <option value="">Select</option>
+                        <option value="common cold">Common Cold</option>
+                        <option value="covid 19">Covid 19</option>
+                        <option value="diarrhea">Diarrhea</option>
+                        <option value="food poisoning">Food Poisoning</option>
+                        <option value="gastroenteritis">Gastroenteritis</option>
+                        <option value="gbs">Gullain Barre Syndrome</option>
+                        <option value="hepatitis">Hepatitis</option>
+                        <option value="influenza">Influenza</option>
+                        <option value="mumps">Mumps</option>
+                        <option value="otitis externa">Otitis Externa</option>
+                        <option value="otitis media">Otitis Media</option>
+                        <option value="pneumonia">Pneumonia</option>
+                        <option value="throat infection">Throat infection</option>
+                        <option value="tonsillitis">Tonsillitis</option>
+                        <option value="tuberculosis">Tuberculosis</option>
+                        <option value="bronchitis">Viral Bronchitis</option>
+                    </select>
+                </label>
+                
+>>>>>>> 5953dd761cd696778930a264056086b9c71cf638
                 <label>
                     Onset
                     <input type="text" name="onset" value={formData.onset} onChange={handleChange} required />
