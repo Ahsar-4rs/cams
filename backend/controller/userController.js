@@ -8,12 +8,12 @@ export const userRegister = catchAsyncErrors(async(req,res,next)=>{
     if(!Name || !userImage || !DOB|| !Gender || !Address || !MedicalHistory || !email || !phoneNo || !username || !password || !role || !Department){
         return next( new ErrorHandler("Please fill full form", 400));
     }
-    const user= await User.findOne({email});
+    var user= await User.findOne({email});
     if (user){
         return next( new ErrorHandler("User Already Registered!", 400));
     }
     user= await User.create({ Name, userImage,DOB,Gender, Address, MedicalHistory, email, phoneNo,username, password,role, Department});
-    generateToken(user, "User Registered........",200, res);
+    return generateToken(user, "User Registered........",200, res);
 });
 
 
