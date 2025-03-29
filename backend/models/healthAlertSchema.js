@@ -1,19 +1,16 @@
-import mongoose, { trusted } from "mongoose";
-import validator from "validator";
-import jwt from "jsonwebtoken"
-
+import mongoose from "mongoose";
 
 const healthAlertSchema=new mongoose.Schema({
    AlertID:{
     type:Number,
-    required:true
+    unique:true
    },
-   Name:{
+   name:{
     type:String,
     required:true,
     minLength:[3,"Event Name must contain atleast 3 characters!!"]
    },
-   Age:{
+   age:{
     type:Number,
     required:true,
     validate: {
@@ -23,43 +20,78 @@ const healthAlertSchema=new mongoose.Schema({
         message: "Age must be atleast 17!!"
     }
    },
-   Gender:{
+   gender:{
     type:String,
     required:true,
-    enum:["Male","Female"]
+    enum:["male","female"]
    },
-   Phno:{
-    type:Number,
+   phone:{
+    type:String,
     required:true
    },
-   Department:{
-    type:String
+   department:{
+    type:String,
+    required:false
    },
-   Semester:{
-    type:Number,
+   semester:{
+    type:String,
     required:true,
-    validate: {
-        validator: function (value) {
-            return value<=10; 
-        },
-        message: "Semester can have value upto 10 only!!"
-    }
+    enum:["","1","2","3","4","5","6","7","8","9","10"]
    },
-   Class:{
+   class:{
     type:String,
     required:true
    },
-   Accomodation:{
+   accommodation:{
     type:String,
     required:true
    },
-   Hostel:{
-    type:String
+   hostel:{
+    type:String,
+    required:false
+   },
+   roomNumber:{
+    type:String,
+    required:false
+   },
+   diagnosis:{
+    type:String,
+    required:true
+   },
+   onset:{
+    type:String,
+    required:false
+   },
+   medicineIntake:{
+    type:String,
+    required:false
+   },
+   socialGatherings:{
+    type:String,
+    required:false
+   },
+   foodIntake:{
+    type:String,
+    required:false
+   },
+   allergies:{
+    type:String,
+    required:false
+   },
+   level:{
+    type:Number,
+    required:false
    }
 
 });
 
+healthAlertSchema.pre("save", async function (next) {
+    if (!this.AlertID) {
+       const lastEntry = await healthAlert.findOne().sort("-AlertID");
+       this.AlertID = lastEntry ? lastEntry.AlertID + 1 : 0;
+    }
+    next();
+ });
 
 
-
-export const healthAlert =mongoose.model("HealthAlert",healthAlertSchemaSchema);
+export const healthAlert =mongoose.model("HealthAlert",healthAlertSchema);

@@ -1,10 +1,10 @@
 import React, { useState, useRef } from 'react';
 import './Reports.css';
-
+import axios from 'axios';
 const Reports = () => {
     const [formData, setFormData] = useState({
         name: '',
-        age: '',
+        age: 20,
         gender: '',
         phone: '',
         accommodation: '',
@@ -13,23 +13,13 @@ const Reports = () => {
         department: '',
         semester: '',
         class: '',
-<<<<<<< HEAD
-        symptoms: '',
-        onset: '',
-        patientHistory: '',
-        medicineIntake: '',
-        socialGatherings: '',
-        foodIntake: '',
-        allergies: ''
-=======
         diagnosis: '',
         onset: '',
         medicineIntake: '',
         socialGatherings: '',
         foodIntake: '',
         allergies: '',
-        level: ''
->>>>>>> 5953dd761cd696778930a264056086b9c71cf638
+        level: 1
     });
 
     const [errors, setErrors] = useState({});
@@ -44,11 +34,7 @@ const Reports = () => {
         department: useRef(null),
         semester: useRef(null),
         class: useRef(null),
-<<<<<<< HEAD
-        symptoms: useRef(null),
-=======
         diagnosis: useRef(null),
->>>>>>> 5953dd761cd696778930a264056086b9c71cf638
         onset: useRef(null),
         medicineIntake: useRef(null),
         socialGatherings: useRef(null),
@@ -63,8 +49,6 @@ const Reports = () => {
             [name]: value
         });
         setErrors({ ...errors, [name]: '' }); // Clear error on change
-<<<<<<< HEAD
-=======
 
         // Set level based on diagnosis
         if (name === 'diagnosis') {
@@ -79,52 +63,99 @@ const Reports = () => {
                 console.log('Level set to:', 1);
             }
         }
->>>>>>> 5953dd761cd696778930a264056086b9c71cf638
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log("Submit button clicked!"); 
+        console.log("Submitting Form Data:", formData);
         const newErrors = {};
         let hasError = false;
-
+    
         // Validate required fields
-        for (const key in formData) {
-<<<<<<< HEAD
-            if (!formData[key] && key !== 'patientHistory' && key !== 'medicineIntake' && key !== 'socialGatherings' && key !== 'foodIntake' && key !== 'allergies') {
-=======
-            if (!formData[key] && key !== 'medicineIntake' && key !== 'socialGatherings' && key !== 'foodIntake' && key !== 'allergies') {
->>>>>>> 5953dd761cd696778930a264056086b9c71cf638
-                newErrors[key] = 'This field is required';
-                hasError = true;
-            }
+        if (formData.name.length < 3) {
+            newErrors.name = 'Name must contain at least 3 characters';
+            hasError = true;
         }
-
+        if (formData.age < 17) {
+            newErrors.age = 'Age must be at least 17';
+            hasError = true;
+        }
+        if (!['male', 'female'].includes(formData.gender)) {
+            newErrors.gender = 'Gender must be Male or Female';
+            hasError = true;
+        }
+        if (!validatePhoneNumber(formData.phone)) {
+            newErrors.phone = 'Phone number must be a valid 10-digit number';
+            hasError = true;
+        }
+        
+        if (!formData.class) {
+            newErrors.class = 'Class is required';
+            hasError = true;
+        }
+        if (!formData.accommodation) {
+            newErrors.accommodation = 'Accommodation is required';
+            hasError = true;
+        }
+        if (!formData.diagnosis) {
+            newErrors.diagnosis = 'Diagnosis is required';
+            hasError = true;
+        }
+    
         if (hasError) {
             setErrors(newErrors);
-            // Scroll to the first error field
             const firstErrorField = Object.keys(newErrors)[0];
-            inputRefs[firstErrorField].current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            if (inputRefs[firstErrorField] && inputRefs[firstErrorField].current) {
+                inputRefs[firstErrorField].current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                inputRefs[firstErrorField].current.focus();
+            }
             return;
         }
-
-        // Handle form submission logic here
-        console.log('Form submitted:', formData);
+    
+        try {
+            const updatedFormData = { ...formData, level: formData.level || 1 }; 
+            console.log("Submitting Form Data:", updatedFormData);
+            const response = await axios.post('http://localhost:4000/api/v1/report/reportAlert', updatedFormData, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+    
+            if (response.data.success) {
+                alert("Health Alert Report Submitted Successfully!");
+                setFormData({
+                    name: '',
+                    age: 20,
+                    gender: '',
+                    phone: '',
+                    accommodation: '',
+                    hostel: '',
+                    roomNumber: '',
+                    department: '',
+                    semester: '',
+                    class: '',
+                    diagnosis: '',
+                    onset: '',
+                    medicineIntake: '',
+                    socialGatherings: '',
+                    foodIntake: '',
+                    allergies: '',
+                    level: 1
+                });
+            }
+        } catch (error) {
+            console.error("Error submitting report:", error);
+            alert("Error submitting report. Please try again later.");
+        }
     };
+    
 
     const validatePhoneNumber = (phone) => {
         const phoneRegex = /^[0-9]{10}$/;
         return phoneRegex.test(phone);
     };
 
-<<<<<<< HEAD
-    /*const validateSemester = (semester) => {
-        const semesterNum = parseInt(semester, 10);
-        return semesterNum >= 1 && semesterNum <= 10;
-    };
-    */
-
-=======
->>>>>>> 5953dd761cd696778930a264056086b9c71cf638
     return (
         <div className="reports-container">
             <h1>Medical Report Form</h1>
@@ -137,11 +168,7 @@ const Reports = () => {
                 </label>
                 <label>
                     Age
-<<<<<<< HEAD
-                    <input type="number" name="age" value={formData.age} onChange={handleChange} ref={inputRefs.age} required />
-=======
                     <input type="number" name="age" value={formData.age} onChange={handleChange} ref={inputRefs.age} required  min="10" max="100"/>
->>>>>>> 5953dd761cd696778930a264056086b9c71cf638
                     {errors.age && <span className="error-message">{errors.age}</span>}
                 </label>
                 <label>
@@ -225,84 +252,12 @@ const Reports = () => {
                     Class
                     <select name="class" value={formData.class} onChange={handleChange} ref={inputRefs.class} required>
                         <option value="">Select</option>
-<<<<<<< HEAD
-                        {formData.semester === '1' && (
-                            <>
-                                <option value={`${formData.department}1A`}>{`${formData.department}1A`}</option>
-                                <option value={`${formData.department}1B`}>{`${formData.department}1B`}</option>
-                                {formData.department === 'M' || formData.department === 'T' ? (
-                                    <option value={`${formData.department}1C`}>{`${formData.department}1C`}</option>
-                                ) : null}
-                            </>
-                        )}
-                        {formData.semester === '2' && (
-                            <>
-                                <option value={`${formData.department}2A`}>{`${formData.department}2A`}</option>
-                                <option value={`${formData.department}2B`}>{`${formData.department}2B`}</option>
-                                {formData.department === 'M' || formData.department === 'T' ? (
-                                    <option value={`${formData.department}2C`}>{`${formData.department}2C`}</option>
-                                ) : null}
-                            </>
-                        )}
-                        {formData.semester === '3' && (
-                            <>
-                                <option value={`${formData.department}3A`}>{`${formData.department}3A`}</option>
-                                <option value={`${formData.department}3B`}>{`${formData.department}3B`}</option>
-                                {formData.department === 'M' || formData.department === 'T' ? (
-                                    <option value={`${formData.department}3C`}>{`${formData.department}3C`}</option>
-                                ) : null}
-                            </>
-                        )}
-                        {formData.semester === '4' && (
-                            <>
-                                <option value={`${formData.department}4A`}>{`${formData.department}4A`}</option>
-                                <option value={`${formData.department}4B`}>{`${formData.department}4B`}</option>
-                                {formData.department === 'M' || formData.department === 'T' ? (
-                                    <option value={`${formData.department}4C`}>{`${formData.department}4C`}</option>
-                                ) : null}
-                            </>
-                        )}
-                        {formData.semester === '5' && (
-                            <>
-                                <option value={`${formData.department}5A`}>{`${formData.department}5A`}</option>
-                                <option value={`${formData.department}5B`}>{`${formData.department}5B`}</option>
-                                {formData.department === 'M' || formData.department === 'T' ? (
-                                    <option value={`${formData.department}5C`}>{`${formData.department}5C`}</option>
-                                ) : null}
-                            </>
-                        )}
-                        {formData.semester === '6' && (
-                            <>
-                                <option value={`${formData.department}6A`}>{`${formData.department}6A`}</option>
-                                <option value={`${formData.department}6B`}>{`${formData.department}6B`}</option>
-                                {formData.department === 'M' || formData.department === 'T' ? (
-                                    <option value={`${formData.department}6C`}>{`${formData.department}6C`}</option>
-                                ) : null}
-                            </>
-                        )}
-                        {formData.semester === '7' && (
-                            <>
-                                <option value={`${formData.department}7A`}>{`${formData.department}7A`}</option>
-                                <option value={`${formData.department}7B`}>{`${formData.department}7B`}</option>
-                                {formData.department === 'M' || formData.department === 'T' ? (
-                                    <option value={`${formData.department}7C`}>{`${formData.department}7C`}</option>
-                                ) : null}
-                            </>
-                        )}
-                        {formData.semester === '8' && (
-                            <>
-                                <option value={`${formData.department}8A`}>{`${formData.department}8A`}</option>
-                                <option value={`${formData.department}8B`}>{`${formData.department}8B`}</option>
-                                {formData.department === 'M' || formData.department === 'T' ? (
-                                    <option value={`${formData.department}8C`}>{`${formData.department}8C`}</option>
-=======
                         {formData.department && (formData.semester === '1' || formData.semester === '2' || formData.semester === '3' || formData.semester === '4' || formData.semester === '5' || formData.semester === '6' || formData.semester === '7' || formData.semester === '8') && (
                             <>
                                 <option value={`${formData.department}${formData.semester}A`}>{`${formData.department}${formData.semester}A`}</option>
                                 <option value={`${formData.department}${formData.semester}B`}>{`${formData.department}${formData.semester}B`}</option>
                                 {formData.department === 'M' || formData.department === 'T' ? (
                                     <option value={`${formData.department}${formData.semester}C`}>{`${formData.department}${formData.semester}C`}</option>
->>>>>>> 5953dd761cd696778930a264056086b9c71cf638
                                 ) : null}
                             </>
                         )}
@@ -393,10 +348,6 @@ const Reports = () => {
                 <h2>Disease Information</h2>
                 <label>
                     Diagnosis
-<<<<<<< HEAD
-                    <textarea name="symptoms" value={formData.symptoms} onChange={handleChange} required />
-                </label>
-=======
                     <select name="diagnosis" value={formData.diagnosis} onChange={handleChange} ref={inputRefs.diagnosis} required>
                         <option value="">Select</option>
                         <option value="common cold">Common Cold</option>
@@ -418,7 +369,6 @@ const Reports = () => {
                     </select>
                 </label>
                 
->>>>>>> 5953dd761cd696778930a264056086b9c71cf638
                 <label>
                     Onset
                     <input type="text" name="onset" value={formData.onset} onChange={handleChange} required />

@@ -21,17 +21,11 @@ import EditEvent from './pages/EventManagement/EditEvent.jsx';
 import DeleteEvent from './pages/EventManagement/DeleteEvent.jsx';
 import PeerSupport from './pages/Health/PeerSupport.jsx'; 
 import ChatPage from './pages/Health/ChatPage.jsx';  
-<<<<<<< HEAD
 import Maps from './pages/Map/Maps.jsx';
-import Reports from './pages/Reports/Reports.jsx';
 
-
-=======
-import Maps from './pages/Map/Maps.jsx'
 import { useEffect } from 'react';
 import ScrollToTop from './Components/ScrollToTop.jsx';
 import Reports from './pages/Reports/Reports.jsx';
->>>>>>> 5953dd761cd696778930a264056086b9c71cf638
 
 function App() {
   useEffect(() => {
@@ -71,7 +65,8 @@ function App() {
             }
             />
             <Route path="/chat/:disease" element={
-              <ProtectedRoute requiredAccess="canAccessHealth"><ChatPage/>
+              <ProtectedRoute requiredAccess="canAccessHealth"><ChatPage/></ProtectedRoute>
+            }
             />
             <Route exact path="/locations" element={
               <ProtectedRoute requiredAccess="canAccessHealth"><Maps /></ProtectedRoute>
