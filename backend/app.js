@@ -10,7 +10,7 @@ import userRouter from './router/userRouter.js'
 import healthAlertRouter from './router/healthAlertRouter.js'
 import diseaseGroupRouter from './router/diseaseGroupRouter.js'
 import messageRouter from './router/messageRouter.js'
-
+import areaRouter from "./router/areaRouter.js"
 
 
 const app= express();
@@ -35,6 +35,7 @@ app.use(
     })
 );
 
+app.use("/api/v1/area",areaRouter);
 app.use("/api/v1/socialEvent",socialEventRouter);
 app.use("/api/v1/user",userRouter);
 app.use("/api/v1/report",healthAlertRouter)
