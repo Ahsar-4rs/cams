@@ -64,7 +64,7 @@ function App() {
               <ProtectedRoute requiredAccess="canAccessHealth"><PeerSupport /></ProtectedRoute>
             }
             />
-            <Route path="/chat/:disease" element={
+            <Route path="/chat/:groupID" element={
               <ProtectedRoute requiredAccess="canAccessHealth"><ChatPage/></ProtectedRoute>
             }
             />
