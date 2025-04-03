@@ -3,22 +3,21 @@ import validator from "validator";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken"
 
-
 const userSchema=new mongoose.Schema({
     Name:{
         type:String,
         required:true,
-        minLength:[3,"Event Name must contain atleast 3 characters!!"]
+        minLength:[3,"Event Name must contain atleast 3 characters!!\n"]
     },
     userImage:{
         type:String,
-        required:true,
-        default:"bgr.jpg",
+        required:false,
+        default:"bgr.png",
     },
     DOB:{
         type:Date,
-        required:[true,"DOB is required"],
-        validate:[validator.isDate,"Enter in [YYYY-MM-DD] format!!"]
+        required:[true,"DOB is required! "],
+        validate:[validator.isDate,"Enter in [YYYY-MM-DD] format!!\n"]
     },
     Gender:{
         type: String,
@@ -37,23 +36,23 @@ const userSchema=new mongoose.Schema({
     email:{
         type:String,
         required:true,
-        validate:[validator.isEmail,"Please, Enter valid email-ID:"]
+        validate:[validator.isEmail,"Please, Enter valid email-ID:\n"]
     },
     phoneNo:{
         type:String,
         required:true,
-        minLength:[10,"Phone Number has always 10 digits...."],
-        maxLength:[10,"Phone Number has always 10 digits...."],
+        minLength:[10,"Phone Number has always 10 digits....\n"],
+        maxLength:[10,"Phone Number has always 10 digits....\n"],
     },
     username:{
         type:String,
         required:true,
-        minLength:[8,"Username must contain atleast 8 characters!!"]
+        minLength:[8,"Username must contain atleast 8 characters!\n"]
     },
     password:{
         type:String,
         required:true,
-        minLength:[8, "Password must contain atleast 8 characters"],
+        minLength:[8,"Password must contain atleast 8 characters!\n"],
         select:false
     },
     role:{
@@ -82,7 +81,5 @@ userSchema.methods.generateJsonWebToken = function(){
         expiresIn:process.env.JWT_EXPIRES
     })
 }
-
-
 
 export const User =mongoose.model("User",userSchema);

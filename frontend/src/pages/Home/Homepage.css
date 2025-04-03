@@ -1,0 +1,24 @@
+.admin-button {
+    position: fixed;
+    top: 20px; /*Top or Bottom would cause the button to be rendered vice versa*/
+    right: 20px;
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: #007bff; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000; 
+    transition: background-color 0.3s;
+    min-width: 80px;
+    max-width: 150px;
+    min-height: 80px;
+    max-height: 150px;
+    height: auto;
+    white-space: nowrap;
+}
+
+.admin-button:hover {
+    background-color: #0056b3;
+}
