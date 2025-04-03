@@ -36,4 +36,30 @@ button {
 
 button:hover {
     background-color: #0056b3;
-} 
+}
+
+.review-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff; /* Enabled button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.review-button:hover {
+    background-color: #0056b3; /* Darker shade on hover for enabled button */
+}
+
+.review-button:disabled {
+    background-color: #cccccc; /* Color for disabled button */
+    color: #666666; /* Text color for disabled button */
+    cursor: not-allowed; /* Change cursor to indicate it's not clickable */
+}
+
+.review-button:disabled:hover {
+    background-color: #cccccc; /* Keep the same color on hover for disabled button */
+    color: #666666; /* Keep the same text color on hover for disabled button */
+}

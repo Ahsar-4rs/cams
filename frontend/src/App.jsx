@@ -25,6 +25,9 @@ import Map from './pages/Map/Maps.jsx'
 import { useEffect } from 'react';
 import ScrollToTop from './Components/ScrollToTop.jsx';
 import Reports from './pages/Reports/Reports.jsx';
+import AdminControls from './pages/Admin-controls/admin-controls.jsx';
+import AddUser from './pages/Admin-controls/add-user.jsx';
+import Vouch from './pages/Health/Vouch.jsx';
 
 function App() {
   useEffect(() => {
@@ -98,6 +101,18 @@ function App() {
             />
             <Route exact path="/Reports" element={
               <ProtectedRoute requiredAccess="canAccessReports"><Reports /></ProtectedRoute>
+            }
+            />
+            <Route exact path='/admin-controls' element={
+              <ProtectedRoute requiredAccess="canAlterSystem"><AdminControls /></ProtectedRoute>
+            } 
+            />
+            <Route exact path="/admin-controls/add-user" element={
+              <ProtectedRoute requiredAccess="canAlterSystem"><AddUser /></ProtectedRoute>
+            }
+            />
+            <Route exact path='/vouch'  element={
+              <ProtectedRoute requiredAccess="canReviewHealth"><Vouch /></ProtectedRoute>
             }
             />
 

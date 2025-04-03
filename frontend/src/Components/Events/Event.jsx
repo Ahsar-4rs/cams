@@ -4,7 +4,7 @@ import './Event.css';
 function EventComponent(props){
 
     const {Name, Date, Time, Venue, Image, Organizer} = props
-    console.log("Event Props:", props);
+    // console.log("Event Props:", props);
     
     return(
         <div className="event-cards">

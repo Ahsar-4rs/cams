@@ -30,7 +30,7 @@ function Health() {
               src={reviewImage} 
               alt="Vouch" 
               className={`health-image ${!hasReviewPrivilege ? 'disabled' : ''}`}
-              onClick={() => hasReviewPrivilege && navigate("/review-health")}
+              onClick={() => hasReviewPrivilege && navigate("/vouch")}
               style={{ cursor: hasReviewPrivilege ? "pointer" : "not-allowed" }}
             /> 
             {!hasReviewPrivilege && <div className="tooltip">Reserved for authorized users only</div>}

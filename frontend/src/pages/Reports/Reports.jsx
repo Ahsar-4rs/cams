@@ -4,7 +4,7 @@ import './Reports.css';
 const Reports = () => {
     const [formData, setFormData] = useState({
         name: '',
-        age: '',
+        age: 20,
         gender: '',
         phone: '',
         accommodation: '',
@@ -19,7 +19,7 @@ const Reports = () => {
         socialGatherings: '',
         foodIntake: '',
         allergies: '',
-        level: ''
+        level: 1
     });
 
     const [errors, setErrors] = useState({});
@@ -331,7 +331,7 @@ const Reports = () => {
                     <textarea name="allergies" value={formData.allergies} onChange={handleChange} />
                 </label>
 
-                <button type="submit" disabled={!validatePhoneNumber(formData.phone)}>Review and Submit</button>
+                <button className="review-button" type="submit" disabled={!validatePhoneNumber(formData.phone)} title={!validatePhoneNumber(formData.phone) ? "Please enter a valid 10-digit phone number." : ""}>Review and Submit</button>
             </form>
         </div>
     );

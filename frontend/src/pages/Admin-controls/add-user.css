@@ -1,0 +1,102 @@
+.add-user-container {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: auto;
+    transition: box-shadow 0.3s ease;
+}
+
+.add-user-container:hover {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+.add-user-container h1 {
+    margin-bottom: 24px;
+    color: #2c3e50;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.add-user-form-wrapper {
+    width: 100%;
+    padding: 24px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.add-user-container form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.add-user-container input,
+.add-user-container select,
+.add-user-container textarea {
+    margin-bottom: 16px;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #333;
+    background-color: #ffffff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.add-user-container input:focus,
+.add-user-container select:focus,
+.add-user-container textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+    outline: none;
+}
+
+.add-user-container input::placeholder,
+.add-user-container select::placeholder,
+.add-user-container textarea::placeholder {
+    color: #999;
+}
+
+.add-user-container button {
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-user-container button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.add-user-container button:active {
+    transform: translateY(0);
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 480px) {
+    .add-user-container {
+        padding: 24px;
+    }
+
+    .add-user-container h1 {
+        font-size: 1.75rem;
+    }
+
+    .add-user-form-wrapper {
+        padding: 16px;
+    }
+}

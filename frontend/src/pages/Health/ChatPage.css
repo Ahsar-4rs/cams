@@ -17,6 +17,11 @@
     width: 130px;
 }
 
+.chat-header p {
+    color: white;
+    cursor: default;
+}
+
 .chat-messages {
     flex-grow: 1;
     display: flex;
