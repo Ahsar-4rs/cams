@@ -22,9 +22,9 @@ const socialEventSchema=new mongoose.Schema({
         required: true,
         validate: {
             validator: function (value) {
-                return /^([01]\d|2[0-3]):([0-5]\d):([0-5]\d)$/.test(value); // Ensures HH:MM:SS format
+                return /^([01]\d|2[0-3]):([0-5]\d)$/.test(value); // Ensures HH:MM:SS format
             },
-            message: "Enter time in [HH:MM:SS] format!!"
+            message: "Enter time in [HH:MM] format!!"
         }
     },
     eventVenue:{
@@ -40,6 +40,11 @@ const socialEventSchema=new mongoose.Schema({
     eventInfo:{
         type:String,
         required:true,
+    },
+    Category:{
+        type:String,
+        enum:["Workshop", "Seminar","Conference","Social Event"],
+        required:true
     }
 });
 
