@@ -22,7 +22,8 @@ export const ACCESS_RIGHTS = {
         canAccessEmergency: false,
         canManageEvents: false,
         canReviewHealth: false,
-        canAccessReports: false
+        canAccessReports: false,
+        canAlterSystem: false
     },
     [PRIVILEGE_LEVELS.STUDENT]: {
         canAccessHome: true,
@@ -35,7 +36,8 @@ export const ACCESS_RIGHTS = {
         canAccessEmergency: true,
         canManageEvents: false,
         canReviewHealth: false,
-        canAccessReports: true
+        canAccessReports: true,
+        canAlterSystem: false
     },
     [PRIVILEGE_LEVELS.FACULTY]: {
         canAccessHome: true,
@@ -48,7 +50,8 @@ export const ACCESS_RIGHTS = {
         canAccessEmergency: true,
         canManageEvents: false,
         canReviewHealth: true,
-        canAccessReports: true
+        canAccessReports: true,
+        canAlterSystem: false
     },
     [PRIVILEGE_LEVELS.CLUB_REP]: {
         canAccessHome: true,
@@ -61,7 +64,8 @@ export const ACCESS_RIGHTS = {
         canAccessEmergency: true,
         canManageEvents: true,
         canReviewHealth: false,
-        canAccessReports: false
+        canAccessReports: false,
+        canAlterSystem: false
     },
     [PRIVILEGE_LEVELS.ADMIN]: {
         canAccessHome: true,
@@ -74,7 +78,8 @@ export const ACCESS_RIGHTS = {
         canAccessEmergency: true,
         canManageEvents: true,
         canReviewHealth: true,
-        canAccessReports: true
+        canAccessReports: true,
+        canAlterSystem: true
     }
 };
 

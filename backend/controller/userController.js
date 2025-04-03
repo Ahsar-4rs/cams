@@ -5,10 +5,30 @@ import {generateToken} from '../utils/jwtToken.js'
 
 export const userRegister = catchAsyncErrors(async(req,res,next)=>{
     const { Name, userImage,DOB,Gender, Address, MedicalHistory, email, phoneNo,username, password,role, Department} = req.body
-    if(!Name || !userImage || !DOB|| !Gender || !Address || !MedicalHistory || !email || !phoneNo || !username || !password || !role || !Department){
-        return next( new ErrorHandler("Please fill full form", 400));
+
+    // Create an array to hold missing fields
+    const missingFields = [];
+
+    // Check for each required field
+    if (!Name) missingFields.push("Name");
+    if (!DOB) missingFields.push("Date of Birth");
+    if (!Gender) missingFields.push("Gender");
+    if (!Address) missingFields.push("Address");
+    if (!MedicalHistory) missingFields.push("Medical History");
+    if (!email) missingFields.push("Email");
+    if (!phoneNo) missingFields.push("Phone Number");
+    if (!username) missingFields.push("Username");
+    if (!password) missingFields.push("Password");
+    if (!role) missingFields.push("Role");
+    if (!Department) missingFields.push("Department");
+
+    // If there are missing fields, return an error
+    if (missingFields.length > 0) {
+        return next(new ErrorHandler(`Please fill the following fields: ${missingFields.join(", ")}`, 400));
     }
+
     var user= await User.findOne({email});
+  
     if (user){
         return next( new ErrorHandler("User Already Registered!", 400));
     }
