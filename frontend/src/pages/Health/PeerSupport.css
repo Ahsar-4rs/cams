@@ -1,7 +1,5 @@
-
-
-.peer-container{
-  background-color: #f5f5f5; 
+.peer-container {
+  background-color: #f5f5f5;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,7 +7,7 @@
   padding: 20px;
 }
 
-.peer-title{
+.peer-title {
   font-size: 2.5rem;
   color: #333;
   font-weight: 600;
@@ -23,10 +21,11 @@
   align-items: center;
   margin: 60px;
   padding: 30px;
+  flex-wrap: wrap; /* Ensures responsive layout */
 }
 
-.support-group-button{
-  background-color: rgba(17, 55, 109, 0.375);
+.support-group-button {
+  background-color: rgb(7, 34, 70);
   color: #fcfbfbd7;
   border: 2px solid transparent;
   width: 150px;
@@ -35,14 +34,105 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
-  font-weight:bold;
-  font-size:medium;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   cursor: pointer;
   box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
 }
 
+.support-group-button:hover {
+  background-color: rgba(17, 55, 109, 0.7);
+  color: #fff;
+}
 
+/* Add Group Button */
+.add-group-button {
+  background-color: #393189;
+  color: white;
+  border: none;
+  width: 150px;
+  height: 150px;
+  border-radius: 12px;
+  font-size: 30px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
 
+.add-group-button:hover {
+  background-color: rgba(17, 55, 109, 0.7);
+}
 
+/* Modal Styling */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 400px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.modal input {
+  display: block;
+  width: 90%;
+  padding: 10px;
+  margin: 10px auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.modal-buttons button {
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.modal-buttons button[type="submit"] {
+  background-color: #007bff;
+  color: white;
+}
+
+.modal-buttons button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.modal-buttons button[type="button"] {
+  background-color: #dc3545;
+  color: white;
+}
+
+.modal-buttons button[type="button"]:hover {
+  background-color: #b52a37;
+}

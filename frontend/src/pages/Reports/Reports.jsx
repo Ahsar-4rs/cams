@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import './Reports.css';
-
+import axios from 'axios';
 const Reports = () => {
     const [formData, setFormData] = useState({
         name: '',
@@ -65,30 +65,91 @@ const Reports = () => {
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log("Submit button clicked!"); 
+        console.log("Submitting Form Data:", formData);
         const newErrors = {};
         let hasError = false;
-
+    
         // Validate required fields
-        for (const key in formData) {
-            if (!formData[key] && key !== 'medicineIntake' && key !== 'socialGatherings' && key !== 'foodIntake' && key !== 'allergies') {
-                newErrors[key] = 'This field is required';
-                hasError = true;
-            }
+        if (formData.name.length < 3) {
+            newErrors.name = 'Name must contain at least 3 characters';
+            hasError = true;
         }
-
+        if (formData.age < 17) {
+            newErrors.age = 'Age must be at least 17';
+            hasError = true;
+        }
+        if (!['male', 'female'].includes(formData.gender)) {
+            newErrors.gender = 'Gender must be Male or Female';
+            hasError = true;
+        }
+        if (!validatePhoneNumber(formData.phone)) {
+            newErrors.phone = 'Phone number must be a valid 10-digit number';
+            hasError = true;
+        }
+        
+        if (!formData.class) {
+            newErrors.class = 'Class is required';
+            hasError = true;
+        }
+        if (!formData.accommodation) {
+            newErrors.accommodation = 'Accommodation is required';
+            hasError = true;
+        }
+        if (!formData.diagnosis) {
+            newErrors.diagnosis = 'Diagnosis is required';
+            hasError = true;
+        }
+    
         if (hasError) {
             setErrors(newErrors);
-            // Scroll to the first error field
             const firstErrorField = Object.keys(newErrors)[0];
-            inputRefs[firstErrorField].current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            if (inputRefs[firstErrorField] && inputRefs[firstErrorField].current) {
+                inputRefs[firstErrorField].current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                inputRefs[firstErrorField].current.focus();
+            }
             return;
         }
-
-        // Handle form submission logic here
-        console.log('Form submitted:', formData);
+    
+        try {
+            const updatedFormData = { ...formData, level: formData.level || 1 }; 
+            console.log("Submitting Form Data:", updatedFormData);
+            const response = await axios.post('http://localhost:4000/api/v1/report/reportAlert', updatedFormData, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+    
+            if (response.data.success) {
+                alert("Health Alert Report Submitted Successfully!");
+                setFormData({
+                    name: '',
+                    age: 20,
+                    gender: '',
+                    phone: '',
+                    accommodation: '',
+                    hostel: '',
+                    roomNumber: '',
+                    department: '',
+                    semester: '',
+                    class: '',
+                    diagnosis: '',
+                    onset: '',
+                    medicineIntake: '',
+                    socialGatherings: '',
+                    foodIntake: '',
+                    allergies: '',
+                    level: 1
+                });
+            }
+        } catch (error) {
+            console.error("Error submitting report:", error);
+            alert("Error submitting report. Please try again later.");
+        }
     };
+    
 
     const validatePhoneNumber = (phone) => {
         const phoneRegex = /^[0-9]{10}$/;

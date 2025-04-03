@@ -27,12 +27,13 @@ export const userRegister = catchAsyncErrors(async(req,res,next)=>{
         return next(new ErrorHandler(`Please fill the following fields: ${missingFields.join(", ")}`, 400));
     }
 
-    let user= await User.findOne({email});
+    var user= await User.findOne({email});
+  
     if (user){
         return next( new ErrorHandler("User Already Registered!", 400));
     }
     user= await User.create({ Name, userImage,DOB,Gender, Address, MedicalHistory, email, phoneNo,username, password,role, Department});
-    generateToken(user, "User Registered........",200, res);
+    return generateToken(user, "User Registered........",200, res);
 });
 
 

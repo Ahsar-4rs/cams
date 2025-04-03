@@ -12,7 +12,6 @@ import Health from './pages/Health/Health.jsx';
 import { SessionProvider } from './context/SessionContext.jsx';
 import LoginRegister from './Components/LoginRegister/LoginRegister.jsx';
 import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute.jsx';
-import Health_Location from './pages/Health/Health-Location.jsx';
 import Infra_Location from './pages/Infrastructure/Infra.jsx';
 import Emergency from './pages/Emergency/Emergency.jsx';
 import EventManagement from './pages/EventManagement/EventManagement.jsx';
@@ -21,7 +20,7 @@ import EditEvent from './pages/EventManagement/EditEvent.jsx';
 import DeleteEvent from './pages/EventManagement/DeleteEvent.jsx';
 import PeerSupport from './pages/Health/PeerSupport.jsx'; 
 import ChatPage from './pages/Health/ChatPage.jsx';  
-import Map from './pages/Map/Maps.jsx'
+import Maps from './pages/Map/Maps.jsx';
 import { useEffect } from 'react';
 import ScrollToTop from './Components/ScrollToTop.jsx';
 import Reports from './pages/Reports/Reports.jsx';
@@ -66,51 +65,57 @@ function App() {
               <ProtectedRoute requiredAccess="canAccessHealth"><PeerSupport /></ProtectedRoute>
             } 
             />
-            <Route path="/chat/:disease" element={
-              <ProtectedRoute requiredAccess="canAccessHealth"><ChatPage/>
-              </ProtectedRoute>
-            } 
-            />
-            <Route exact path="/Health-Location" element={
-              <ProtectedRoute requiredAccess="canAccessHealth"><Health_Location /></ProtectedRoute>
+
+            <Route path="/chat/:groupID" element={
+              <ProtectedRoute requiredAccess="canAccessHealth"><ChatPage/></ProtectedRoute>
             }
             />
+              
             <Route exact path="/Infra" element={
               <ProtectedRoute requiredAccess="canAccessInfra"><Infra_Location /></ProtectedRoute>
             }
             />
+              
             <Route exact path="/Emergency" element={
               <ProtectedRoute requiredAccess="canAccessEmergency"><Emergency /></ProtectedRoute>
             }
             />
+              
             <Route exact path="/EventManagement" element={
               <ProtectedRoute requiredAccess="canManageEvents"><EventManagement /></ProtectedRoute>
             }
             />
+              
             <Route exact path="/AddEvent" element={
               <ProtectedRoute requiredAccess="canManageEvents"><AddEvent /></ProtectedRoute>
             }
             />
+              
             <Route exact path="/EditEvent" element={
               <ProtectedRoute requiredAccess="canManageEvents"><EditEvent /></ProtectedRoute>
             }
             />
+              
             <Route exact path="/DeleteEvent" element={
               <ProtectedRoute requiredAccess="canManageEvents"><DeleteEvent /></ProtectedRoute>
             }
             />
+              
             <Route exact path="/Reports" element={
               <ProtectedRoute requiredAccess="canAccessReports"><Reports /></ProtectedRoute>
             }
             />
+              
             <Route exact path='/admin-controls' element={
               <ProtectedRoute requiredAccess="canAlterSystem"><AdminControls /></ProtectedRoute>
             } 
             />
+              
             <Route exact path="/admin-controls/add-user" element={
               <ProtectedRoute requiredAccess="canAlterSystem"><AddUser /></ProtectedRoute>
             }
             />
+              
             <Route exact path='/vouch'  element={
               <ProtectedRoute requiredAccess="canReviewHealth"><Vouch /></ProtectedRoute>
             }

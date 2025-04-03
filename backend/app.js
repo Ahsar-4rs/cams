@@ -7,6 +7,12 @@ import { dbConnection } from "./database/dbConnection.js";
 import socialEventRouter from "./router/socialEventRouter.js"
 import {errorMiddleware} from './middlewares/errorMiddleware.js'
 import userRouter from './router/userRouter.js'
+import healthAlertRouter from './router/healthAlertRouter.js'
+import diseaseGroupRouter from './router/diseaseGroupRouter.js'
+import messageRouter from './router/messageRouter.js'
+import areaRouter from "./router/areaRouter.js"
+
+
 const app= express();
 config({path:"./config/config.env"});
 
@@ -30,8 +36,13 @@ app.use(
     })
 );
 
+app.use("/api/v1/area",areaRouter);
 app.use("/api/v1/socialEvent",socialEventRouter);
 app.use("/api/v1/user",userRouter);
+app.use("/api/v1/report",healthAlertRouter)
+app.use("/api/v1/group",diseaseGroupRouter)
+app.use("/api/v1/message",messageRouter);
+
 
 dbConnection()
 app.use(errorMiddleware);
