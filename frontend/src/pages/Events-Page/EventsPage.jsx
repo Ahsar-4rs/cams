@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Events } from "../../Components/Events/Eventdetails";
+import React, { useEffect, useState } from "react";
+import axios from "axios"
 import './EventsPage.css'
 import { useLocation } from 'react-router-dom';
 
@@ -7,6 +7,24 @@ function EventPage() {
     const location = useLocation();
     const query = new URLSearchParams(location.search);
     const selectedEventName = query.get('event');
+
+    const [events, setEvents] = useState([]);
+
+
+    useEffect(() => {
+        const fetchEvents = async () => {
+            try {
+                const response = await axios.get("http://localhost:4000/api/v1/socialEvent/getEvents");
+                setEvents(response.data);
+            } catch (error) {
+                console.error("Error fetching events:", error);
+            }
+        };
+
+        fetchEvents();
+    }, []);
+
+
 
     useEffect(() => {
         if (selectedEventName) {
@@ -23,28 +41,28 @@ function EventPage() {
 
     return (
         <div className="events-menu">
-            {Events.map((Event) => (
-                <div className="event-card" key={Event.Name} id={Event.Name}>
+            {events.map((Event) => (
+                <div className="event-card" key={Event.eventName} id={Event.eventName}>
                     <div className="event-image">
-                        <img src={Event.Image} alt={Event.Name + " Image"} />
+                        <img src={Event.eventImage} alt={Event.eventName + " Image"} />
                     </div>
                     <div className="event-main-content">
-                        <h2 className="event-name">{Event.Name}</h2>
-                        <p className="event-description">{Event.Body}</p>
+                        <h2 className="event-name">{Event.eventName}</h2>
+                        <p className="event-description">{Event.eventInfo}</p>
                         <div className="event-info">
-                            {Event.Date && (
+                            {Event.eventDate && (
                                 <div className="info-item">
-                                    <span className="label">Date:</span> {Event.Date}
+                                    <span className="label">Date:</span> {Event.eventDate}
                                 </div>
                             )}
-                            {Event.Time && (
+                            {Event.eventTime && (
                                 <div className="info-item">
-                                    <span className="label">Time:</span> {Event.Time}
+                                    <span className="label">Time:</span> {Event.eventTime}
                                 </div>
                             )}
-                            {Event.Venue && (
+                            {Event.eventVenue && (
                                 <div className="info-item">
-                                    <span className="label">Venue:</span> {Event.Venue}
+                                    <span className="label">Venue:</span> {Event.eventVenue}
                                 </div>
                             )}
                             {Event.Organizer && (

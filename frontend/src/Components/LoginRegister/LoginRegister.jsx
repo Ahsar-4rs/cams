@@ -55,11 +55,18 @@ function LoginRegister() {
         
         </div>
         <div className='form-data'>
-        <input type='text' name='username' value={formData.username} placeholder='Enter Username' onChange={(e)=>setFormData({...formData,username:e.target.value})} required/>
-        <input type='password' name='password' value={formData.password} placeholder='Enter Password'onChange={(e)=>setFormData({...formData,password:e.target.value})} required/>
-        {action==='Register' &&(
-          <input className={`email-input ${action === 'Register' ? 'show' : ''}`}  type='text' name='email' value={formData.email} placeholder='Enter Email' onChange={(e)=>setFormData({...formData,email:e.target.value})} required/>
-        )}
+            <input type='text' name='username' value={formData.username} placeholder='Enter Username' onChange={(e)=>setFormData({...formData,username:e.target.value})} required/>
+            <input type='password' name='password' value={formData.password} placeholder='Enter Password'onChange={(e)=>setFormData({...formData,password:e.target.value})} required/>
+            {action==='Register' &&(
+            <input className={`email-input ${action === 'Register' ? 'show' : ''}`}  type='text' name='email' value={formData.email} placeholder='Enter Email' onChange={(e)=>setFormData({...formData,email:e.target.value})} required/>
+            )}
+            <select name='role' value={formData.role} onChange={(e) => setFormData({ ...formData, role: e.target.value })} required>
+                <option value=''>Select Role</option>
+                <option value='General User'>General User</option>
+                <option value='Faculty'>Faculty</option>
+                <option value='Club Representative'>Club Representative</option>
+                <option value='Admin'>Admin</option>
+            </select>
         </div>
         
         <div className='terms'>

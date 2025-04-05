@@ -1,82 +1,81 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios"
-import './EventsPage.css'
-import { useLocation } from 'react-router-dom';
-
-function EventPage() {
-    const location = useLocation();
-    const query = new URLSearchParams(location.search);
-    const selectedEventName = query.get('event');
-
-    const [events, setEvents] = useState([]);
 
 
-    useEffect(() => {
-        const fetchEvents = async () => {
-            try {
-                const response = await axios.get("http://localhost:4000/api/v1/socialEvent/getEvents");
-                setEvents(response.data);
-            } catch (error) {
-                console.error("Error fetching events:", error);
-            }
-        };
+//------------------------------------
+import './LoginRegister.css';
+import React, { useState } from 'react';
+import { useUser } from '../../context/UserContext';
+import { useNavigate } from 'react-router-dom';
 
-        fetchEvents();
-    }, []);
+function LoginRegister() {
+    const [action, setAction] = useState("Login");
+    const { login, register } = useUser();
+    const navigate = useNavigate();
 
+    const [formData, setFormData] = useState({
+        username: "",
+        password: "",
+        email: "",
+        role: ""
+    });
 
+    const registerLink = () => setAction('Register');
+    const loginLink = () => setAction('Login');
 
-    useEffect(() => {
-        if (selectedEventName) {
-            const element = document.getElementById(selectedEventName);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                element.classList.add('glow');
-                setTimeout(() => {
-                    element.classList.remove('glow');
-                }, 2000);
-            }
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        let response;
+
+        if (action === 'Login') {
+            response = await login(formData.email, formData.password, formData.role);
+        } else {
+            response = await register(formData);
         }
-    }, [selectedEventName]);
+
+        if (response.success) {
+            navigate('/home');
+        } else {
+            alert(response.message);
+        }
+    };
 
     return (
-        <div className="events-menu">
-            {events.map((Event) => (
-                <div className="event-card" key={Event.eventName} id={Event.eventName}>
-                    <div className="event-image">
-                        <img src={Event.eventImage} alt={Event.eventName + " Image"} />
-                    </div>
-                    <div className="event-main-content">
-                        <h2 className="event-name">{Event.eventName}</h2>
-                        <p className="event-description">{Event.eventInfo}</p>
-                        <div className="event-info">
-                            {Event.eventDate && (
-                                <div className="info-item">
-                                    <span className="label">Date:</span> {Event.eventDate}
-                                </div>
-                            )}
-                            {Event.eventTime && (
-                                <div className="info-item">
-                                    <span className="label">Time:</span> {Event.eventTime}
-                                </div>
-                            )}
-                            {Event.eventVenue && (
-                                <div className="info-item">
-                                    <span className="label">Venue:</span> {Event.eventVenue}
-                                </div>
-                            )}
-                            {Event.Organizer && (
-                                <div className="info-item">
-                                    <span className="label">Organizer:</span> {Event.Organizer}
-                                </div>
-                            )}
-                        </div>
-                        <button className="view-location-button">View Location</button>
-                    </div>
-                </div>
-            ))}
+        <div className={`loginRegister ${action === 'Register' ? 'signup' : 'signin'}`}> 
+            <div className='title'>
+                <h2>{action}</h2>
+            </div>
+            <div className='form-data'>
+                {action === 'Register' && (
+                    <input type='text' name='username' value={formData.username} placeholder='Enter Username' 
+                        onChange={(e) => setFormData({ ...formData, username: e.target.value })} required />
+                )}
+                <input type='email' name='email' value={formData.email} placeholder='Enter Email' 
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })} required />
+                <input type='password' name='password' value={formData.password} placeholder='Enter Password' 
+                    onChange={(e) => setFormData({ ...formData, password: e.target.value })} required />
+                <select name='role' value={formData.role} onChange={(e) => setFormData({ ...formData, role: e.target.value })} required>
+                    <option value=''>Select Role</option>
+                    <option value='General User'>General User</option>
+                    <option value='Faculty'>Faculty</option>
+                    <option value='Club Representative'>Club Representative</option>
+                    <option value='Admin'>Admin</option>
+                </select>
+            </div>
+
+            <div className='terms'>
+                <input type='checkbox' name='consent' required />
+                <label>I accept the <a href='./privacy' target='_blank'>Terms and Conditions</a>.</label>
+            </div>
+
+            <form onSubmit={handleSubmit}>
+                <button type="submit">Submit</button>
+            </form>
+            {action === 'Login' ? (
+                <p>Don't have an account? <a href='#signup' onClick={registerLink}>Register</a></p>
+            ) : (
+                <p>Already have an account? <a href='#signin' onClick={loginLink}>Login</a></p>
+            )}
         </div>
-    )
+    );
 }
 
-export default EventPage
+export default LoginRegister;
