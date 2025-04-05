@@ -87,7 +87,11 @@ const healthAlertSchema=new mongoose.Schema({
     required:true,
     enum:[0,1,2]
    },
-
+   VouchedBy:{
+    type:String,
+    required:true,
+    default:null
+   }
 });
 
 healthAlertSchema.pre("save", async function (next) {
