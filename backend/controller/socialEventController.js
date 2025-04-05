@@ -1,6 +1,8 @@
 import { catchAsyncErrors } from "../middlewares/catchAsyncErrors.js";
 import { SocialEvent } from "../models/socialEventSchema.js";
 import ErrorHandler from "../middlewares/errorMiddleware.js";
+import cloudinary from "../utils/cloudinary.js"; // Import Cloudinary config
+import fs from "fs"; // For deleting temp files
 
 export const postSocialEvent = catchAsyncErrors(async (req, res, next) => {
     try {
@@ -18,16 +20,19 @@ export const postSocialEvent = catchAsyncErrors(async (req, res, next) => {
         }
 
         const file = req.files.eventImage;
-        const uploadPath = `./public/uploads/${file.name}`;
 
-        // Move file to server storage
-        await file.mv(uploadPath);
-        console.log("File uploaded to:", uploadPath);
+        // Upload to Cloudinary
+        const result = await cloudinary.uploader.upload(file.tempFilePath, {
+            folder: "social_events",
+            resource_type: "image",
+        });
 
-        // Save event to database
+        // Remove temp file after upload
+        fs.unlinkSync(file.tempFilePath);
+
         const event = await SocialEvent.create({
             eventName,
-            eventImage: `/uploads/${file.name}`,
+            eventImage: result.secure_url, // Cloudinary image URL
             eventDate,
             eventTime,
             eventVenue,
@@ -40,7 +45,8 @@ export const postSocialEvent = catchAsyncErrors(async (req, res, next) => {
 
         res.status(200).json({
             success: true,
-            message: "Social Event Entry created Successfully.....",
+            message: "Social Event Entry created Successfully",
+            data: event
         });
 
     } catch (error) {
