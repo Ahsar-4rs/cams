@@ -10,7 +10,7 @@ import userRouter from './router/userRouter.js'
 import healthAlertRouter from './router/healthAlertRouter.js'
 import diseaseGroupRouter from './router/diseaseGroupRouter.js'
 import messageRouter from './router/messageRouter.js'
-
+import areaRouter from "./router/areaRouter.js"
 
 
 const app= express();
@@ -18,7 +18,8 @@ config({path:"./config/config.env"});
 
 app.use(
     cors({
-        origin:[process.env.FRONTEND_URL],
+        //origin:[process.env.FRONTEND_URL],
+        origin : "http://localhost:5173",
         methods:["GET","POST","PUT","DELETE"],
         credentials:true,
     })
@@ -35,6 +36,7 @@ app.use(
     })
 );
 
+app.use("/api/v1/area",areaRouter);
 app.use("/api/v1/socialEvent",socialEventRouter);
 app.use("/api/v1/user",userRouter);
 app.use("/api/v1/report",healthAlertRouter)
