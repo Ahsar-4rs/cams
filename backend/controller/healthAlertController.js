@@ -80,3 +80,34 @@ export const reporthealthAlert = catchAsyncErrors(async (req, res, next) => {
         return next(new ErrorHandler(error.message || "Server Error", 500));
     }
 });
+
+export const getSomeReport = catchAsyncErrors(async (req, res, next) => {
+    try {
+        const reports = await healthAlert.find({ status: 0 }).sort({ level: -1 });
+
+        res.status(200).json({
+            success: true,
+            message: "Filtered Health Alerts fetched successfully",
+            reports
+        });
+    } catch (error) {
+        console.error("Error in getSomeReport:", error);
+        return next(new ErrorHandler("Failed to fetch reports", 500));
+    }
+});
+
+
+export const getAllReports = catchAsyncErrors(async (req, res, next) => {
+    try {
+        const reports = await healthAlert.find().sort({ status: 1, level: -1 });
+
+        res.status(200).json({
+            success: true,
+            message: "All Health Alerts fetched successfully",
+            reports
+        });
+    } catch (error) {
+        console.error("Error in getAllReports:", error);
+        return next(new ErrorHandler("Failed to fetch all reports", 500));
+    }
+});

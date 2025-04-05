@@ -81,7 +81,12 @@ const healthAlertSchema=new mongoose.Schema({
    level:{
     type:Number,
     required:false
-   }
+   },
+   status:{
+    type:Number,
+    required:true,
+    enum:[0,1,2]
+   },
 
 });
 
