@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import addUserImage from './Add.jpg';
+import addLocationImage from './location.jpg';
 import './admin-controls.css';
 
 const AdminControls = () => {
@@ -10,6 +11,11 @@ const AdminControls = () => {
         // Navigate to the Add User page or functionality
         navigate('add-user');
     };
+
+    const handleAddLocationClick = () => {
+      // Navigate to the Add Location page or functionality
+      navigate('add-location');
+    }
 
     return (
         <div className="admin-controls-container">
@@ -26,6 +32,16 @@ const AdminControls = () => {
                 style={{ cursor: "pointer" }}
               />
               <p>Add User</p>
+            </div>
+            <div className="admin-control">
+              <img
+                src={addLocationImage}
+                alt="Add Location"
+                className="admin-control-image"
+                onClick={handleAddLocationClick}
+                style={{ cursor: "pointer" }}
+              />
+              <p>Add Location</p>
             </div>
             </div>
           </div>
