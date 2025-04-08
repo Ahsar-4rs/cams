@@ -24,6 +24,7 @@ export const reporthealthAlert = catchAsyncErrors(async (req, res, next) => {
             socialGatherings, // Remains the same
             foodIntake, // Remains the same
             allergies, // Remains the same
+            status, // Remains the same
             level // Remains the same
         } = req.body;
 
@@ -65,7 +66,8 @@ export const reporthealthAlert = catchAsyncErrors(async (req, res, next) => {
             socialGatherings,
             foodIntake,
             allergies,
-            level
+            status,
+            level,
         });
 
         console.log("Health Alert Created:", alertEntry);

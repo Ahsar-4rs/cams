@@ -1,0 +1,102 @@
+/* Container Styling */
+.add-location-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full-screen height */
+    width: 100%; /* Take full width */
+    text-align: center;
+    background: #f0f4f8; /* Soft background color */
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Form Title */
+.add-location-container h1 {
+    color: #333; /* Darker color for better contrast */
+    font-size: 2.5rem; /* Increased font size */
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Group */
+.location-form-group {
+    background: white; /* Changed to white for better contrast */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 90%; /* Full width on smaller screens */
+    max-width: 400px; /* Limit max width */
+    text-align: center;
+}
+
+/* Form Elements */
+.location-form-elements {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Reduced gap for a more compact look */
+}
+
+/* Input Fields */
+.location-form-elements input {
+    margin: 0px -10px; /* Margin for spacing */
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc; /* Added border for better visibility */
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333;
+    background: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease-in-out;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.location-form-elements input:focus {
+    outline: none;
+    border-color: #4facfe; /* Change border color on focus */
+    box-shadow: 0 0 5px rgba(79, 172, 254, 0.5); /* Shadow effect on focus */
+}
+
+/* Submit Button */
+.loc-submit-btn {
+    margin-top: 30px;
+    margin-left: 5px;
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.loc-submit-btn:hover {
+    background: linear-gradient(135deg, #00c6fb, #005bea);
+}
+
+/* Success Message */
+.success-message {
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #28a745;
+    background: rgba(40, 167, 69, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #28a745;
+    display: inline-block;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .add-location-container h1 {
+        font-size: 2rem; /* Adjusted for smaller screens */
+    }
+
+    .location-form-group {
+        width: 95%; /* Full width on smaller screens */
+    }
+}

@@ -8,7 +8,7 @@ const healthAlertSchema=new mongoose.Schema({
    name:{
     type:String,
     required:true,
-    minLength:[3,"Event Name must contain atleast 3 characters!!"]
+    minLength:[3,"Name must contain atleast 3 characters!!"]
    },
    age:{
     type:Number,
@@ -80,7 +80,8 @@ const healthAlertSchema=new mongoose.Schema({
    },
    level:{
     type:Number,
-    required:false
+    required:true,
+    enum:[1,2,3]
    },
    status:{
     type:Number,
@@ -89,7 +90,7 @@ const healthAlertSchema=new mongoose.Schema({
    },
    VouchedBy:{
     type:String,
-    required:true,
+    required:false,
     default:null
    }
 });

@@ -27,6 +27,8 @@ import Reports from './pages/Reports/Reports.jsx';
 import AdminControls from './pages/Admin-controls/admin-controls.jsx';
 import AddUser from './pages/Admin-controls/add-user.jsx';
 import Vouch from './pages/Health/Vouch.jsx';
+import AddLocation from './pages/Admin-controls/add-location.jsx';
+
 
 function App() {
   useEffect(() => {
@@ -113,6 +115,11 @@ function App() {
               
             <Route exact path="/admin-controls/add-user" element={
               <ProtectedRoute requiredAccess="canAlterSystem"><AddUser /></ProtectedRoute>
+            }
+            />
+
+            <Route exact path="/admin-controls/add-location" element={
+              <ProtectedRoute requiredAccess="canAlterSystem"><AddLocation /></ProtectedRoute>
             }
             />
               
