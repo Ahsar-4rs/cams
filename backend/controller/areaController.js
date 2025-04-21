@@ -1,17 +1,18 @@
-import {catchAsyncErrors} from '../middlewares/catchAsyncErrors.js';
+import { catchAsyncErrors } from '../middlewares/catchAsyncErrors.js';
 import ErrorHandler from '../middlewares/errorMiddleware.js';
 import { Area } from "../models/AreaSchema.js";
 
 export const createArea = catchAsyncErrors(async (req, res) => {
   try {
-    const { place, lat, long, type } = req.body;
+    const { place, lat, long, type, floor } = req.body; // Now include floor
 
     // Create a new area document
     const newArea = new Area({
       place,
       lat,
       long,
-      type
+      type,
+      floor, // Make sure to add the floor value
     });
 
     // Save the area to the database
@@ -19,7 +20,7 @@ export const createArea = catchAsyncErrors(async (req, res) => {
 
     res.status(201).json({
       message: 'Marker created successfully!',
-      area: newArea
+      area: newArea,
     });
   } catch (error) {
     console.error("Error in createArea:", error);
@@ -48,12 +49,12 @@ export const deleteArea = async (req, res) => {
 
     res.status(200).json({
       message: 'Marker deleted successfully!',
-      deletedArea
+      deletedArea,
     });
   } catch (error) {
     res.status(500).json({
       message: 'Failed to delete marker.',
-      error: error.message
+      error: error.message,
     });
   }
 };

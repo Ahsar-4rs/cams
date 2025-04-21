@@ -15,8 +15,12 @@ const AreaSchema=new mongoose.Schema({
     },
     type:{
         type:String,
-        enum:["SocialVenue","Infected","Repair","Emergency", ""],
+        enum:["SocialVenue","Infected","Repair","Emergency", "","Fire Extinguisher"],
         required:false
+    },
+    floor:{
+        type:Number,
+        required:true
     }
 });
 

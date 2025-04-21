@@ -87,8 +87,7 @@ function LoginRegister() {
         <form onSubmit={handleSubmit}>
             <button type="submit">Submit</button>
         </form>
-        {action==='Login'?<p >Don't have an account?<a href='#signup' onClick={registerLink}>Register</a></p> : <p >Already have an account?<a href='#signin' onClick={loginLink}>login</a></p>}
-      
+        
        
     </div>
   )

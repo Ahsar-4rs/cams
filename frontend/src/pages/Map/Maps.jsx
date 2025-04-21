@@ -5,6 +5,13 @@ import './Maps.css';
 function Maps() {
   const [menu, setMenu] = useState("GF"); // Default to Ground Floor
 
+  // Map floor names to floor numbers
+  const floorMap = {
+    GF: 0,
+    FF: 1,
+    SF: 2
+  };
+
   return (
     <div className='Maps'>
       <h1>TKM COLLEGE OF ENGINEERING</h1>
@@ -16,7 +23,7 @@ function Maps() {
         </ul>
       </div>
       {/* Pass selected floor as a prop */}
-      <OpenStreetMapOverlay selectedFloor={menu} />
+      <OpenStreetMapOverlay selectedFloor={floorMap[menu]} />
     </div>
   );
 }
