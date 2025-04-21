@@ -30,3 +30,135 @@ h1 {
     margin-bottom: 20px;
     color: #333;
 }
+
+.vouch-container {
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+}
+
+.vouch-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.vouch-header h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.description {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    margin-bottom: 25px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.refresh-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.refresh-button:hover {
+    background-color: #2980b9;
+}
+
+.loading, .error-message, .no-reports {
+    text-align: center;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+.loading {
+    color: #3498db;
+    font-size: 1.2rem;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 1.1rem;
+}
+
+.no-reports {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .vouch-container {
+        padding: 15px;
+    }
+    
+    .vouch-header h1 {
+        font-size: 2rem;
+    }
+    
+    .description {
+        font-size: 1rem;
+    }
+}
+
+.action-toolbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.bulk-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 5px;
+    flex-wrap: wrap;
+}
+
+.delete-all-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    color: white;
+}
+
+.delete-all-button:hover:not([disabled]) {
+    transform: scale(1.05);
+}
+
+.delete-all-button.vouched {
+    background-color: #9b59b6;
+}
+
+.delete-all-button.vouched:hover:not([disabled]) {
+    background-color: #8e44ad;
+}
+
+.delete-all-button.rejected {
+    background-color: #34495e;
+}
+
+.delete-all-button.rejected:hover:not([disabled]) {
+    background-color: #2c3e50;
+}
+
+.delete-all-button[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

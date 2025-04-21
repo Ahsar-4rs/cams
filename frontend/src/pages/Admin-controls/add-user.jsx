@@ -97,7 +97,7 @@ const AddUser = () => {
                     <input type="text" name="phoneNo" placeholder="Phone Number" value={formData.phoneNo} onChange={handleChange} required />
                     <input type="text" name="username" placeholder="Username" value={formData.username} onChange={handleChange} required />
                     <input type="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange} required />
-                    <select name="Role" value={formData.role} onChange={handleChange} required>
+                    <select name="role" value={formData.role} onChange={handleChange} required>
                         <option value="">Select Role</option>
                         <option value="General User">General User</option>
                         <option value="Faculty">Faculty</option>

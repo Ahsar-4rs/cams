@@ -34,7 +34,7 @@ function LoginRegister() {
             if (response.success) {
                 // Navigate to dashboard or home
                 switch (formData.role.toLowerCase()) {
-                    case 'general user':
+                    case 'student':
                         loginAs('student');
                         break;
                     case 'faculty':
@@ -72,7 +72,7 @@ function LoginRegister() {
             )}
             <select name='role' value={formData.role} onChange={(e) => setFormData({ ...formData, role: e.target.value })} required>
                 <option value=''>Select Role</option>
-                <option value='General User'>General User</option>
+                <option value='Student'>Student</option>
                 <option value='Faculty'>Faculty</option>
                 <option value='Club Representative'>Club Representative</option>
                 <option value='Admin'>Admin</option>
