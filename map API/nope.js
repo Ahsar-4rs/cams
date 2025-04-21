@@ -1,5 +1,20 @@
 
 
+
+
+{/*
+  {/*      <div className='MenuBar'>
+        <ul>
+          <li onClick={() => setMenu("GF")} className={menu === "GF" ? "active" : ""}>Ground Floor</li>
+          <li onClick={() => setMenu("FF")} className={menu === "FF" ? "active" : ""}>First Floor</li>
+          <li onClick={() => setMenu("SF")} className={menu === "SF" ? "active" : ""}>Second Floor</li>
+        </ul>
+      </div>
+      {/* Pass selected floor as a prop */}
+      {/*<OpenStreetMapOverlay selectedFloor={menu} />
+  */}
+
+
 //------------------------------------
 import './LoginRegister.css';
 import React, { useState } from 'react';
@@ -79,19 +94,3 @@ function LoginRegister() {
 }
 
 export default LoginRegister;
-
-
-
-
-
-{/*
-  {/*      <div className='MenuBar'>
-        <ul>
-          <li onClick={() => setMenu("GF")} className={menu === "GF" ? "active" : ""}>Ground Floor</li>
-          <li onClick={() => setMenu("FF")} className={menu === "FF" ? "active" : ""}>First Floor</li>
-          <li onClick={() => setMenu("SF")} className={menu === "SF" ? "active" : ""}>Second Floor</li>
-        </ul>
-      </div>
-      {/* Pass selected floor as a prop */}
-      {/*<OpenStreetMapOverlay selectedFloor={menu} />
-  */}
