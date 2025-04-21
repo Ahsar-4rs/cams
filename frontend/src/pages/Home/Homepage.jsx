@@ -3,6 +3,7 @@ import './Homepage.css'
 import Explore from '../../Components/Explore/Explore.jsx'
 import Section1 from '../../Components/Section1/Section1.jsx'
 import EventBanner from '../../Components/Events/EventBanner.jsx'
+import OutbreakAlert from '../../Components/OutbreakAlert/OutbreakAlert.jsx'
 import { useSession } from '../../context/SessionContext.jsx'
 import { useNavigate } from 'react-router-dom'
 
@@ -20,6 +21,7 @@ function Homepage() {
 
   return (
     <div>
+      <OutbreakAlert/>
       <Explore/>
       <Section1/>
       {rights['canAlterSystem'] && (<button className='admin-button' onClick={handleAdminControls}>Admin Controls</button>

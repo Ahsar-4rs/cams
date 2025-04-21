@@ -1,0 +1,146 @@
+.delete-event-container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.delete-event-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+.delete-event-card h2 {
+    color: #e74c3c;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+
+.event-details {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+.event-image {
+    flex: 0 0 300px;
+}
+
+.event-image img {
+    width: 100%;
+    border-radius: 8px;
+    height: auto;
+    object-fit: cover;
+}
+
+.event-info {
+    flex: 1;
+}
+
+.event-info h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.event-info p {
+    margin: 8px 0;
+    color: #555;
+}
+
+.event-info .description {
+    margin-top: 15px;
+    line-height: 1.6;
+}
+
+.confirmation-message {
+    text-align: center;
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: #fff9f9;
+    border-radius: 5px;
+}
+
+.confirmation-message .warning {
+    color: #e74c3c;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.delete-button, .cancel-button, .back-button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.delete-button {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.delete-button:hover:not(:disabled) {
+    background-color: #c0392b;
+}
+
+.cancel-button {
+    background-color: #95a5a6;
+    color: white;
+}
+
+.cancel-button:hover:not(:disabled) {
+    background-color: #7f8c8d;
+}
+
+.back-button {
+    background-color: #3498db;
+    color: white;
+}
+
+.back-button:hover {
+    background-color: #2980b9;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.error-message {
+    background-color: #ffebee;
+    color: #e53935;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.loading {
+    text-align: center;
+    padding: 30px;
+    color: #3498db;
+    font-size: 18px;
+}
+
+@media (max-width: 768px) {
+    .event-details {
+        flex-direction: column;
+    }
+    
+    .event-image {
+        flex: 0 0 auto;
+        margin-bottom: 20px;
+    }
+}

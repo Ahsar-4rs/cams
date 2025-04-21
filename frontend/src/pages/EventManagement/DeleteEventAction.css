@@ -1,0 +1,73 @@
+.events-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.events-title {
+    font-size: 28px;
+    color: #e74c3c;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.events-description {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #666;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.no-events {
+    text-align: center;
+    padding: 40px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    color: #777;
+}
+
+.event-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.quick-delete-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+.quick-delete-button:hover:not(:disabled) {
+    background-color: #c0392b;
+}
+
+.quick-delete-button:disabled,
+.view-location-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Animation for the glow effect */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px rgba(231, 76, 60, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(231, 76, 60, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(231, 76, 60, 0.2);
+    }
+}
+
+.glow {
+    animation: glow 2s;
+} 
