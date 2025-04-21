@@ -111,3 +111,5 @@ export const getAllReports = catchAsyncErrors(async (req, res, next) => {
         return next(new ErrorHandler("Failed to fetch all reports", 500));
     }
 });
+
+

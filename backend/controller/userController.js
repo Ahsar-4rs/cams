@@ -56,3 +56,13 @@ export const login =catchAsyncErrors(async(req,res,next)=>{
     }
     generateToken(user, "User Logged in Successfully....",200,res);
 });
+
+
+export const getUserProfile = catchAsyncErrors(async (req, res, next) => {
+    const user = await User.findById(req.user.id).select("-password");
+    
+    res.status(200).json({
+        success: true,
+        user,
+    });
+});

@@ -11,7 +11,7 @@ import healthAlertRouter from './router/healthAlertRouter.js'
 import diseaseGroupRouter from './router/diseaseGroupRouter.js'
 import messageRouter from './router/messageRouter.js'
 import areaRouter from "./router/areaRouter.js"
-
+import smsRouter from './router/smsRouter.js'
 
 const app= express();
 config({path:"./config/config.env"});
@@ -42,7 +42,7 @@ app.use("/api/v1/user",userRouter);
 app.use("/api/v1/report",healthAlertRouter)
 app.use("/api/v1/group",diseaseGroupRouter)
 app.use("/api/v1/message",messageRouter);
-
+app.use("/api/v1/sms",smsRouter);
 
 dbConnection()
 app.use(errorMiddleware);
