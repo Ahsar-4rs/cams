@@ -1,24 +1,15 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios"
-<<<<<<<< HEAD:frontend/src/pages/EventManagement/EditEventAction.jsx
-import '../Events-Page/EventsPage.css'
-import { useLocation,useNavigate } from 'react-router-dom';
-========
-import './EventsPage.css'
-import { useLocation } from 'react-router-dom';
->>>>>>>> 327892b462318a58ad614dfea8c63406f1bc9e47:frontend/src/pages/Events-Page/EventsPage.jsx
+import axios from "axios";
+import '../Events-Page/EventsPage.css';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function EditEventAction() {
     const location = useLocation();
+    const navigate = useNavigate();
     const query = new URLSearchParams(location.search);
     const selectedEventName = query.get('event');
 
     const [events, setEvents] = useState([]);
-<<<<<<<< HEAD:frontend/src/pages/EventManagement/EditEventAction.jsx
-    const navigate = useNavigate();
-========
-
->>>>>>>> 327892b462318a58ad614dfea8c63406f1bc9e47:frontend/src/pages/Events-Page/EventsPage.jsx
 
     useEffect(() => {
         const fetchEvents = async () => {
@@ -32,8 +23,6 @@ function EditEventAction() {
 
         fetchEvents();
     }, []);
-
-
 
     useEffect(() => {
         if (selectedEventName) {
@@ -85,7 +74,7 @@ function EditEventAction() {
                 </div>
             ))}
         </div>
-    )
+    );
 }
 
-export default EditEventAction
+export default EditEventAction;
