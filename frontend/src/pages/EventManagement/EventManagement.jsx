@@ -7,7 +7,7 @@ import './EventManagement.css';
 
 const EventManagement = () => {
     const navigate = useNavigate();
-
+    
     return (
         <div>
             <h2>Event Management</h2>

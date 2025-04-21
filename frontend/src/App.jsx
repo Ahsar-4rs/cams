@@ -49,7 +49,7 @@ function App() {
             <Route exact path="/Contact" element={<Contact />}/>
             <Route exact path="/EventPage" element={<EventPage />}></Route>
             <Route exact path="/Contact" element={<Contact />}/>
-            <Route exact path="/locations" element={<Map />}/>
+            <Route exact path="/locations" element={<Maps />}/>
 
             //Protected Routes
             <Route exact path="/Account" element={

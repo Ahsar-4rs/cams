@@ -1,14 +1,17 @@
 import './LoginRegister.css'
-
+import {useUser} from '../../context/UserContext.jsx'
 import React, { useState } from 'react'
 import { useSession } from '../../context/SessionContext'
 import { useNavigate } from 'react-router-dom'
+
+
+
 
 function LoginRegister() {
     const [action,setAction]=useState("Login")
     const { loginAs } = useSession()
     const navigate = useNavigate()
-
+    const { login } = useUser();
     const [formData,setFormData]=useState({
         username:"",
         password:"",
@@ -22,32 +25,39 @@ function LoginRegister() {
       setAction('Login');
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        
-        if (action === 'Login') {
-            switch(formData.username.toLowerCase()) {
-                case 'student':
-                    loginAs('student')
-                    break
-                case 'faculty':
-                    loginAs('faculty')
-                    break
-                case 'clubrep':
-                    loginAs('clubRep')
-                    break
-                case 'admin':
-                    loginAs('admin')
-                    break
-                default:
-                    loginAs('guest')
-            }
-            navigate('/home')
-        } else {
-            navigate('/home')
-        }
-    }
+    const handleSubmit = async(e) => {
+        e.preventDefault();
 
+        if (action === 'Login') {
+            const response = await login(formData.email, formData.password, formData.role);
+    
+            if (response.success) {
+                // Navigate to dashboard or home
+                switch (formData.role.toLowerCase()) {
+                    case 'general user':
+                        loginAs('student');
+                        break;
+                    case 'faculty':
+                        loginAs('faculty');
+                        break;
+                    case 'club representative':
+                        loginAs('clubRep');
+                        break;
+                    case 'admin':
+                        loginAs('admin');
+                        break;
+                    default:
+                        loginAs('guest');
+                }
+                navigate('/home');
+            } else {
+                alert(response.message);
+            }
+        } else {
+            
+            navigate('/home');
+        }
+    };
   return (
     <div className={`loginRegister ${action === 'Register' ? 'signup' : 'signin'}`}>
            <div className='title'>
@@ -55,10 +65,10 @@ function LoginRegister() {
         
         </div>
         <div className='form-data'>
-            <input type='text' name='username' value={formData.username} placeholder='Enter Username' onChange={(e)=>setFormData({...formData,username:e.target.value})} required/>
+            <input type='text' name='email' value={formData.email} placeholder='Enter Email' onChange={(e)=>setFormData({...formData,email:e.target.value})} required/>
             <input type='password' name='password' value={formData.password} placeholder='Enter Password'onChange={(e)=>setFormData({...formData,password:e.target.value})} required/>
             {action==='Register' &&(
-            <input className={`email-input ${action === 'Register' ? 'show' : ''}`}  type='text' name='email' value={formData.email} placeholder='Enter Email' onChange={(e)=>setFormData({...formData,email:e.target.value})} required/>
+            <input className={`email-input ${action === 'Register' ? 'show' : ''}`}  type='text' name='username' value={formData.username} placeholder='Enter Email' onChange={(e)=>setFormData({...formData,username:e.target.value})} required/>
             )}
             <select name='role' value={formData.role} onChange={(e) => setFormData({ ...formData, role: e.target.value })} required>
                 <option value=''>Select Role</option>

@@ -10,10 +10,6 @@ function Health() {
   const navigate = useNavigate(); 
   const { getCurrentAccessRights } = useSession();
   const rights = getCurrentAccessRights();
-  
-  const routeHealthLocation = () => {
-    navigate("/Health-location");
-  }
 
   // Check if user can review health
 

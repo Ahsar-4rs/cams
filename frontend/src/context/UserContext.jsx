@@ -22,12 +22,16 @@ export const UserProvider = ({ children }) => {
 
     const login = async (email, password, role) => {
         try {
-            const { data } = await axios.post("/api/auth/login", { email, password, role });
+            const { data } = await axios.post("http://localhost:4000/api/v1/user/login", { email, password, role });
             setUser(data.user);
             localStorage.setItem("token", data.token);
             return { success: true };
         } catch (error) {
-            return { success: false, message: error.response.data.message };
+            console.error("Login Error:", error);
+            return {
+                success: false,
+                message: error?.response?.data?.message || "Login failed. Please try again."
+            };
         }
     };
 
@@ -38,7 +42,11 @@ export const UserProvider = ({ children }) => {
             localStorage.setItem("token", data.token);
             return { success: true };
         } catch (error) {
-            return { success: false, message: error.response.data.message };
+            console.error("Register Error:", error);
+            return {
+                success: false,
+                message: error?.response?.data?.message || "Registration failed. Please try again."
+            };
         }
     };
 
