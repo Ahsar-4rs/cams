@@ -19,7 +19,8 @@ const Reports = () => {
         socialGatherings: '',
         foodIntake: '',
         allergies: '',
-        level: 1
+        level: 1,
+        status: 0
     });
 
     const [errors, setErrors] = useState({});
@@ -106,6 +107,9 @@ const Reports = () => {
         if (hasError) {
             setErrors(newErrors);
             const firstErrorField = Object.keys(newErrors)[0];
+            console.log("First error field:", firstErrorField);
+            
+            // Scroll to the first error field
             if (inputRefs[firstErrorField] && inputRefs[firstErrorField].current) {
                 inputRefs[firstErrorField].current.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 inputRefs[firstErrorField].current.focus();

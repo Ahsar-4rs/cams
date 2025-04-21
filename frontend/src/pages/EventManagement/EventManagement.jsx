@@ -18,13 +18,13 @@ const EventManagement = () => {
                         <p>Add Event</p>
                     </div>
                 </div>
-                <div className="event-action" onClick={() => navigate('/EditEvent')}>
+                <div className="event-action" onClick={() => navigate('/event-management/edit-action')}>
                     <div className="image-upload-container">
                         <img src={EditImage} alt="Edit Event" className="event-image" />
                         <p>Edit Event</p>
                     </div>
                 </div>
-                <div className="event-action" onClick={() => navigate('/DeleteEvent')}>
+                <div className="event-action" onClick={() => navigate('/event-management/delete-action')}>
                     <div className="image-upload-container">
                         <img src={DeleteImage} alt="Delete Event" className="event-image" />
                         <p>Delete Event</p>

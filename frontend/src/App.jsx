@@ -27,6 +27,10 @@ import Reports from './pages/Reports/Reports.jsx';
 import AdminControls from './pages/Admin-controls/admin-controls.jsx';
 import AddUser from './pages/Admin-controls/add-user.jsx';
 import Vouch from './pages/Health/Vouch.jsx';
+import AddLocation from './pages/Admin-controls/add-location.jsx';
+import EditEventAction from './pages/EventManagement/EditEventAction.jsx';
+import DeleteEventAction from './pages/EventManagement/DeleteEventAction.jsx';
+
 
 function App() {
   useEffect(() => {
@@ -115,11 +119,29 @@ function App() {
               <ProtectedRoute requiredAccess="canAlterSystem"><AddUser /></ProtectedRoute>
             }
             />
+
+            <Route exact path="/admin-controls/add-location" element={
+              <ProtectedRoute requiredAccess="canAlterSystem"><AddLocation /></ProtectedRoute>
+            }
+            />
               
             <Route exact path='/vouch'  element={
               <ProtectedRoute requiredAccess="canReviewHealth"><Vouch /></ProtectedRoute>
             }
             />
+
+          <Route exact path="/event-management/edit-action" element={
+            <ProtectedRoute requiredAccess="canManageEvents"><EditEventAction /></ProtectedRoute>
+          } />
+          <Route exact path="/event-management/delete-action" element={
+            <ProtectedRoute requiredAccess="canManageEvents"><DeleteEventAction /></ProtectedRoute>
+          } />
+          <Route exact path="/event-management/edit/:eventId" element={
+            <ProtectedRoute requiredAccess="canManageEvents"><EditEvent/></ProtectedRoute>
+          } />
+          <Route exact path="/event-management/delete/:eventId" element={
+            <ProtectedRoute requiredAccess="canManageEvents"><DeleteEvent/></ProtectedRoute>
+          } />
 
           </Routes>
           <Footer />
