@@ -45,5 +45,5 @@ app.use("/api/v1/message",messageRouter);
 app.use("/api/v1/sms",smsRouter);
 
 dbConnection()
-app.use(errorMiddleware);
+app.use(errorMiddleware)
 export default app;
