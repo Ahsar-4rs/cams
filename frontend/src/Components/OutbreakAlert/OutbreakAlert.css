@@ -1,0 +1,49 @@
+.outbreak-alert {
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.outbreak-header {
+    background-color: #dc3545;
+    color: white;
+    padding: 10px;
+    margin: -15px -15px 15px;
+    border-radius: 8px 8px 0 0;
+    text-align: center;
+}
+
+.outbreak-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.outbreak-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.level-1 {
+    background-color: #fff3cd;
+    border-left: 5px solid #ffc107;
+}
+
+.level-2 {
+    background-color: #ffe5d0;
+    border-left: 5px solid #fd7e14;
+}
+
+.level-3 {
+    background-color: #f8d7da;
+    border-left: 5px solid #dc3545;
+}
+
+.outbreak-instructions {
+    margin-top: 15px;
+    font-weight: bold;
+    text-align: center;
+} 

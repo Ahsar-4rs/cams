@@ -88,7 +88,7 @@ const healthAlertSchema=new mongoose.Schema({
     required:true,
     enum:[0,1,2]
    },
-   VouchedBy:{
+   vouchedBy:{
     type:String,
     required:false,
     default:null
