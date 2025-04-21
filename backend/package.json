@@ -22,11 +22,8 @@
     "mongoose": "^8.12.1",
     "mongoose-sequence": "^6.0.1",
     "nodemon": "^3.1.9",
-<<<<<<< HEAD
     "openai": "^4.95.1",
     "twilio": "^5.5.2",
-=======
->>>>>>> 327892b462318a58ad614dfea8c63406f1bc9e47
     "validation": "^0.0.1",
     "validator": "^13.12.0"
   }
