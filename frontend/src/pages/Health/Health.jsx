@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom"; 
 import "./Health.css";
 import reviewImage from "./review.avif";
-import locationImage from "./geolocation.jpg";
+import locationImage from "./geolocation.JPG";
 import peerImage from "./psg.png";
 import { useSession } from '../../context/SessionContext';
 
