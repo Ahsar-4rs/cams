@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./PeerSupport.css";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../../context/UserContext";
 
 const PeerSupport = () => {
   const [diseases, setDiseases] = useState([]);
@@ -9,6 +10,7 @@ const PeerSupport = () => {
   const [newSymptoms, setNewSymptoms] = useState("");
   const [newPrescriptions, setNewPrescriptions] = useState("");
   const navigate = useNavigate();
+  const { user } = useUser();
 
   // Fetch disease groups from backend
   useEffect(() => {
@@ -70,8 +72,10 @@ const PeerSupport = () => {
         ))}
 
         {/* Add Disease Button */}
+        {user?.role?.toLowerCase() === "admin" && (
         <button className="add-group-button" onClick={() => setShowForm(true)}>➕</button>
-      </div>
+      )}
+        </div>
 
       {/* Modal Form */}
       {showForm && (
