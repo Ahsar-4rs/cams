@@ -10,6 +10,7 @@ import Contact from './Components/Contact/Contact.jsx';
 import Account from './Components/Account/Account.jsx';
 import Health from './pages/Health/Health.jsx';
 import { SessionProvider } from './context/SessionContext.jsx';
+import { UserProvider } from './context/UserContext.jsx';
 import LoginRegister from './Components/LoginRegister/LoginRegister.jsx';
 import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute.jsx';
 import Infra_Location from './pages/Infrastructure/Infra.jsx';
@@ -39,6 +40,7 @@ function App() {
 
   return (
     <div className="App">
+      <UserProvider>
       <SessionProvider>
         <BrowserRouter>
           <ScrollToTop />
@@ -147,6 +149,7 @@ function App() {
           <Footer />
         </BrowserRouter>
       </SessionProvider>
+      </UserProvider>
     </div>
   );
 }

@@ -12,6 +12,10 @@ const ChatPage = () => {
   const [recoveryRate, setRecoveryRate] = useState(0);
   const textareaRef = useRef(null);
 
+  // ✅ Get user from localStorage
+  const storedUser = localStorage.getItem("user");
+  const user = storedUser ? JSON.parse(storedUser) : null;
+  const senderName = user?.Name || "User";
   // Fetch disease name based on `groupID`
   useEffect(() => {
     const fetchDiseaseName = async () => {
@@ -57,21 +61,21 @@ const ChatPage = () => {
     if (newMessage.trim() !== "") {
       const messageData = {
         groupID,
-        sender: "John Doe", // Replace with actual user info
+        sender: senderName, // ✅ Use name from localStorage
         message: newMessage,
         recoveryRate: null,
       };
-
+  
       try {
         const response = await fetch("http://localhost:4000/api/v1/message/send", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(messageData),
         });
-
+  
         const result = await response.json();
         if (result.success) {
-          setMessages([...messages, messageData]); // Update UI
+          setMessages([...messages, messageData]);
           setNewMessage("");
           autoResize(true);
         } else {
@@ -82,26 +86,27 @@ const ChatPage = () => {
       }
     }
   };
+  
 
   // Send a recovery rate update
   const sendRecoveryRate = async () => {
     const recoveryMessage = {
       groupID,
-      sender: "John Doe", // Replace with actual user info
+      sender: senderName, // ✅ Use name from localStorage
       message: `Recovery Rate: ${recoveryRate}%`,
       recoveryRate: recoveryRate,
     };
-
+  
     try {
       const response = await fetch("http://localhost:4000/api/v1/message/send", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(recoveryMessage),
       });
-
+  
       const result = await response.json();
       if (result.success) {
-        setMessages([...messages, recoveryMessage]); // Update UI
+        setMessages([...messages, recoveryMessage]);
         setShowProgressBar(false);
       } else {
         console.error("Error sending recovery update:", result.message);
@@ -110,6 +115,7 @@ const ChatPage = () => {
       console.error("Error:", error);
     }
   };
+  
 
   // Auto-resize textarea
   const autoResize = (reset = false) => {

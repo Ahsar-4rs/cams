@@ -1,11 +1,12 @@
 import React from "react";
 import "./Account.css";
 import profPhoto from './profile-pic.png';
-import { useUser } from "../../context/UserContext";
+import { useUser } from "../../context/UserContext.jsx";
 
 const Account = () => {
   const { user, loading } = useUser();
-
+  console.log("Account page user:", user);      // ✅ Add this
+  console.log("Account page loading:", loading);
   if (loading) {
     return <div className="account-container">Loading user info...</div>;
   }

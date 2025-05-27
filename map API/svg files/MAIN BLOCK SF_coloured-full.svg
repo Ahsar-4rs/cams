@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    version="1.1"
-   width="465.62549"
-   height="946.06885"
-   viewBox="0 0 465.62549 946.06885"
+   width="1191"
+   height="842"
+   viewBox="0 0 1191 842"
    id="svg12587"
    sodipodi:docname="MAIN BLOCK SF_coloured-full.svg"
-   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -21,46 +21,67 @@
      inkscape:pagecheckerboard="0"
      showgrid="false"
      inkscape:zoom="0.673515"
-     inkscape:cx="760.93331"
-     inkscape:cy="416.47179"
+     inkscape:cx="760.19094"
+     inkscape:cy="434.28877"
      inkscape:window-width="1920"
-     inkscape:window-height="991"
-     inkscape:window-x="-9"
-     inkscape:window-y="-9"
+     inkscape:window-height="974"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg12587"
      inkscape:lockguides="false"
      inkscape:showpageshadow="2"
-     inkscape:deskcolor="#d1d1d1">
-    <inkscape:page
-       x="0"
-       y="0"
-       width="465.62549"
-       height="946.06885"
-       id="page2"
-       margin="0"
-       bleed="0" />
-  </sodipodi:namedview>
+     inkscape:deskcolor="#d1d1d1" />
   <defs
      id="defs11">
+    <rect
+       x="103.88"
+       y="285.4"
+       width="9.12"
+       height="86.76"
+       id="rect20295" />
+    <clipPath
+       id="clip_0">
+      <path
+         transform="matrix(.12,0,0,-.12,14,814)"
+         d="M216 0H9469V6543H216V0"
+         id="path2" />
+    </clipPath>
     <clipPath
        id="clip_1">
       <path
-         transform="matrix(0.12,0,0,-0.12,14,814)"
-         d="M 216,0 H 9469 V 6543 H 216 V 0"
+         transform="matrix(.12,0,0,-.12,14,814)"
+         d="M216 0H9469V6543H216V0"
          id="path5" />
     </clipPath>
     <clipPath
        id="clip_2">
       <path
-         transform="matrix(0.12,0,0,-0.12,14,814)"
-         d="M 216,0 H 9469 V 6543 H 216 V 0"
+         transform="matrix(.12,0,0,-.12,14,814)"
+         d="M216 0H9469V6543H216V0"
          id="path8" />
     </clipPath>
   </defs>
   <g
+     clip-path="url(#clip_0)"
+     id="g17"
+     inkscape:label="#g17">
+    <g
+       inkscape:groupmode="layer"
+       inkscape:label="0"
+       id="g15" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="wall" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="text" />
+  <g
      id="g1"
-     transform="rotate(-11.935463,647.8554,2089.8555)"
+     transform="rotate(-11.935463,586.66706,443.71959)"
      inkscape:export-filename="MAIN BLOCK SF_coloured-full.svg"
      inkscape:export-xdpi="96"
      inkscape:export-ydpi="96">
@@ -57806,4 +57827,12 @@
        y="-689.35376"
        transform="rotate(113.60256)" />
   </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="Layer 1" />
+  <text
+     xml:space="preserve"
+     id="text20293"
+     style="fill:black;fill-opacity:1;line-height:1.25;stroke:none;font-family:sans-serif;font-style:normal;font-weight:normal;font-size:40px;white-space:pre;shape-inside:url(#rect20295)" />
 </svg>
