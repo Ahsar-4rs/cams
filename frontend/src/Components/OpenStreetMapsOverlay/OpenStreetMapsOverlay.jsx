@@ -102,7 +102,7 @@ const OpenStreetMapOverlay = ({ selectedFloor }) => {
   const floorImages = {
     0: "https://raw.githubusercontent.com/Ahsar-4rs/cams/main/map%20API/svg%20files/MAIN%20BLOCK%20GF_coloured-full.svg",
     1: "https://raw.githubusercontent.com/Ahsar-4rs/cams/main/map%20API/svg%20files/MAIN%20BLOCK%20FF_coloured-full.svg",
-    2: "https://raw.githubusercontent.com/Ahsar-4rs/cams/main/map%20API/svg%20files/MAIN%20BLOCK%20SF_coloured-full.svg",
+    2: "https://raw.githubusercontent.com/Ahsar-4rs/cams/refs/heads/main/map%20API/svg%20files/MAIN%20BLOCK%20SF_coloured-full.svg",
   };
 
   const overlayImageUrl = floorImages[selectedFloor] || floorImages[0];
